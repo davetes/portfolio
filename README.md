@@ -41,8 +41,8 @@ A real-time chat application with user authentication and instant messaging.
 
 - **Tech Used:** React, Node.js, Socket.io, MongoDB, Express
 - **Features:** Real-time messaging, user status, private & group chats
-- **Live Demo:** _[Link to project if hosted]_
-- **Repo:** [GitHub - Chat App](https://github.com/yourusername/chat-app)
+- **Live Demo:** _[]_
+
 
 ---
 
@@ -74,9 +74,9 @@ Check out the live version of this portfolio here: **[your-portfolio-link.com](h
 
 ## 📫 Contact Me
 
-- 📧 Email: [your.email@example.com](mailto:your.email@example.com)
-- 💼 LinkedIn: [linkedin.com/in/yourusername](https://linkedin.com/in/yourusername)
-- 🖥️ GitHub: [github.com/yourusername](https://github.com/yourusername)
+- 📧 Email: [tesfahunkere1@gmail.com](mailto:tesfahunkere1.com)
+- 💼 LinkedIn: [https://www.linkedin.com/in/tesfahun-kere](https://www.linkedin.com/in/tesfahun-kere-22b54a333/)
+- 🖥️ GitHub: [https://github.com/davetes](https://github.com/davetes)
 
 ---
 

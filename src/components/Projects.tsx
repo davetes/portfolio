@@ -1,6 +1,6 @@
 import ProjectCard from './ProjectCard';
 import ecommerceImage from '@/assets/project-ecommerce.jpg';
-import taskAppImage from '@/assets/project-taskapp.jpg';
+import taskAppImage from '@/assets/farm.jpg';
 import weatherImage from '@/assets/project-weather.jpg';
 
 const Projects = () => {
@@ -16,12 +16,12 @@ const Projects = () => {
       date: "March 2024"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, team workspaces, and advanced project tracking features. Perfect for agile development teams.",
+      title: "Chat App",
+      description: "A modern, real-time chat application designed to enable seamless communication between users. The app supports one-on-one conversations, group chats, media sharing, and real-time updates..",
       image: taskAppImage,
-      techStack: ["Next.js", "TypeScript", "Firebase", "Tailwind"],
-      liveUrl: "https://taskmanager-demo.vercel.app",
-      githubUrl: "https://github.com/tesfahunkere/taskmanager",
+      techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "TypeScript"],
+      liveUrl: "https://chatapp-0h90.onrender.com/",
+      githubUrl: "https://github.com/davetes",
       status: "completed" as const,
       date: "February 2024"
     },

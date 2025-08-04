@@ -1,31 +1,45 @@
 import ProjectCard from './ProjectCard';
 import taskAppImage from '@/assets/farm.jpg';
 import chatAppImage from "@/assets/chat-app.jpeg";
+import netflixImage from "@/assets/netflix.jpeg";
+
 
 const Projects = () => {
   const projects = [
-   
+
+
     {
       title: "Chat App",
-      description: "A modern, real-time chat application designed to enable seamless communication between users. The app supports one-on-one conversations, media sharing, and real-time updates..",
+      description: "A real-time chat app with one-on-one messaging, media sharing, typing indicators, online status, and live message updates.",
       image: chatAppImage,
-      techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS","RESTfullAPI","Socket.io"],
+      techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "RESTfullAPI", "Socket.io"],
       liveUrl: "https://chatapp-0h90.onrender.com/",
       githubUrl: "https://github.com/davetes",
       status: "completed" as const,
       date: "February 2024"
     },
-    
-  
+    {
+      title: "netflix-clone",
+      description: "A Netflix clone featuring secure user login, movie browsing by category, trailer previews, and a responsive UI built with modern web technologies.",
+      image: netflixImage,
+      techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "RESTfullAPI"],
+      liveUrl: "https://netflix-2g7n.onrender.com",
+      githubUrl: "https://github.com/davetes/netflix",
+      date: "December 2024",
+      status: "completed" as const,
+
+
+    },
+
     {
       title: "FarmGebeya",
-      description: "An e-commerce platform focused on agricultural products",
-      image: taskAppImage, 
+      description: "A user-centric e-commerce platform for buying and selling agricultural products, with order tracking, secure checkout, and farmer-friendly features.",
+      image: taskAppImage,
       techStack: ["Nextjs", "React", "Nodejs", "RESTfullAPI"],
       status: "upcoming" as const,
       date: "May 2025"
     },
-   
+
   ];
 
   return (
@@ -38,7 +52,7 @@ const Projects = () => {
               My <span className="text-gradient-primary">Projects</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my recent work and side projects. Each project represents 
+              A showcase of my recent work and side projects. Each project represents
               my commitment to quality, innovation, and user experience.
             </p>
           </div>

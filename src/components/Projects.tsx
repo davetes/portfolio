@@ -1,67 +1,31 @@
 import ProjectCard from './ProjectCard';
-import ecommerceImage from '@/assets/project-ecommerce.jpg';
 import taskAppImage from '@/assets/farm.jpg';
-import weatherImage from '@/assets/project-weather.jpg';
+import chatAppImage from "@/assets/chat-app.jpeg";
 
 const Projects = () => {
   const projects = [
-    {
-      title: "E-Commerce Platform",
-      description: "A full-featured e-commerce platform with user authentication, product management, shopping cart, and payment integration. Built with modern technologies for optimal performance.",
-      image: ecommerceImage,
-      techStack: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
-      liveUrl: "https://ecommerce-demo.vercel.app",
-      githubUrl: "https://github.com/tesfahunkere/ecommerce",
-      status: "completed" as const,
-      date: "March 2024"
-    },
+   
     {
       title: "Chat App",
-      description: "A modern, real-time chat application designed to enable seamless communication between users. The app supports one-on-one conversations, group chats, media sharing, and real-time updates..",
-      image: taskAppImage,
-      techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "TypeScript"],
+      description: "A modern, real-time chat application designed to enable seamless communication between users. The app supports one-on-one conversations, media sharing, and real-time updates..",
+      image: chatAppImage,
+      techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS","RESTfullAPI","Socket.io"],
       liveUrl: "https://chatapp-0h90.onrender.com/",
       githubUrl: "https://github.com/davetes",
       status: "completed" as const,
       date: "February 2024"
     },
-    {
-      title: "Weather Dashboard",
-      description: "A comprehensive weather application providing detailed forecasts, weather maps, and location-based alerts. Features beautiful UI with data visualization.",
-      image: weatherImage,
-      techStack: ["React", "OpenWeather API", "Chart.js", "CSS3"],
-      liveUrl: "https://weather-app-demo.vercel.app",
-      githubUrl: "https://github.com/tesfahunkere/weather-app",
-      status: "completed" as const,
-      date: "January 2024"
-    },
-    {
-      title: "Social Media Platform",
-      description: "A modern social networking platform with real-time messaging, post sharing, and user interactions. Built with scalability and performance in mind.",
-      image: ecommerceImage, // Placeholder - you can generate another image
-      techStack: ["React", "Node.js", "Socket.io", "PostgreSQL"],
-      githubUrl: "https://github.com/tesfahunkere/social-platform",
-      status: "in-progress" as const,
-      date: "April 2024"
-    },
+    
+  
     {
       title: "FarmGebeya",
       description: "An e-commerce platform focused on agricultural products",
-      image: taskAppImage, // Placeholder - you can generate another image
-      techStack: ["Nextjs", "React", "Nodejs", "RestfullAPI"],
+      image: taskAppImage, 
+      techStack: ["Nextjs", "React", "Nodejs", "RESTfullAPI"],
       status: "upcoming" as const,
       date: "May 2025"
     },
-    {
-      title: "Mobile-First Blog",
-      description: "A responsive blog platform optimized for mobile devices with content management system, SEO optimization, and social media integration.",
-      image: weatherImage, // Placeholder - you can generate another image
-      techStack: ["Next.js", "Sanity CMS", "Vercel", "SEO"],
-      liveUrl: "https://blog-demo.vercel.app",
-      githubUrl: "https://github.com/tesfahunkere/blog-platform",
-      status: "completed" as const,
-      date: "December 2023"
-    }
+   
   ];
 
   return (

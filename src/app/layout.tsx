@@ -19,7 +19,9 @@ export default function RootLayout({
         <html lang="en" className="dark">
             <body className={inter.className}>
                 <Providers>
-                    {children}
+                    <div className="mx-auto max-w-[1390px] min-h-screen bg-background shadow-2xl border-x border-border/50">
+                        {children}
+                    </div>
                 </Providers>
             </body>
         </html>

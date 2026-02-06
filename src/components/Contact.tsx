@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";

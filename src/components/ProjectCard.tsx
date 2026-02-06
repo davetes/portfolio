@@ -1,10 +1,11 @@
 import { ExternalLink, Github, Calendar } from "lucide-react";
+import Image, { StaticImageData } from "next/image";
 import { Button } from "./ui/button";
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  image: string;
+  image: string | StaticImageData;
   techStack: string[];
   liveUrl?: string;
   githubUrl?: string;
@@ -49,13 +50,14 @@ const ProjectCard = ({
   };
 
   return (
-    <div className="bg-gradient-card rounded-xl shadow-soft hover-lift border border-border/50 overflow-hidden group">
+    <div className="glass-card rounded-xl overflow-hidden group">
       {/* Project Image */}
-      <div className="relative overflow-hidden">
-        <img
+      <div className="relative overflow-hidden w-full h-48">
+        <Image
           src={image}
           alt={title}
-          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          fill
         />
 
         {/* Status Badge */}
@@ -123,7 +125,7 @@ const ProjectCard = ({
           {techStack.map((tech, index) => (
             <span
               key={index}
-              className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20"
+              className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full border border-primary/20 backdrop-blur-sm"
             >
               {tech}
             </span>

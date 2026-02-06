@@ -1,3 +1,5 @@
+"use client";
+
 import ProjectCard from './ProjectCard';
 import taskAppImage from '@/assets/farm.jpg';
 import chatAppImage from "@/assets/chat-app.jpeg";
@@ -43,7 +45,8 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-hero">
+    <section id="projects" className="py-24 bg-gradient-to-t from-background to-background/50 relative">
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]"></div>
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -80,7 +83,7 @@ const Projects = () => {
                 const element = document.getElementById('contact');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-gradient-primary text-white px-8 py-3 rounded-lg hover:opacity-90 transition-smooth hover-lift"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full hover-lift shadow-lg shadow-primary/20 transition-all duration-300"
             >
               Get In Touch
             </button>

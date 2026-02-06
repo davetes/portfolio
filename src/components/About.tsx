@@ -28,7 +28,8 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-hero">
+    <section id="about" className="py-24 bg-gradient-to-b from-background to-background/50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]"></div>
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -119,7 +120,7 @@ const About = () => {
                 {highlights.map((item, index) => (
                   <div
                     key={index}
-                    className="bg-gradient-card p-6 rounded-xl shadow-soft hover-lift border border-border/50"
+                    className="glass-card p-6 rounded-xl hover-lift"
                   >
                     <div className="mb-4">
                       <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">

@@ -1,9 +1,9 @@
-import { 
-  Code, 
-  Database, 
-  Palette, 
-  Server, 
-  GitBranch, 
+import {
+  Code,
+  Database,
+  Palette,
+  Server,
+  GitBranch,
   Globe,
   Brain,
   Users,
@@ -65,7 +65,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-background">
+    <section id="skills" className="py-24 bg-background relative">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -83,7 +83,7 @@ const Skills = () => {
             {skillCategories.map((category, categoryIndex) => (
               <div
                 key={categoryIndex}
-                className="bg-gradient-card p-6 rounded-xl shadow-soft hover-lift border border-border/50 animate-scale-in"
+                className="glass-card p-6 rounded-xl hover-lift animate-scale-in"
                 style={{ animationDelay: `${categoryIndex * 150}ms` }}
               >
                 {/* Category Header */}
@@ -108,12 +108,12 @@ const Skills = () => {
                           {skill.level}%
                         </span>
                       </div>
-                      
+
                       {/* Progress Bar */}
                       <div className="w-full bg-muted rounded-full h-2">
                         <div
                           className={`h-2 bg-gradient-to-r ${category.gradient} rounded-full transition-all duration-1000 ease-out`}
-                          style={{ 
+                          style={{
                             width: `${skill.level}%`,
                             animationDelay: `${(categoryIndex * 150) + (skillIndex * 100)}ms`
                           }}
@@ -131,7 +131,7 @@ const Skills = () => {
             <h3 className="text-2xl font-semibold text-center mb-8 text-foreground">
               Additional Technologies
             </h3>
-            
+
             <div className="flex flex-wrap justify-center gap-6">
               {[
                 { icon: Database, name: "Database Design" },
@@ -145,7 +145,7 @@ const Skills = () => {
               ].map((tech, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center p-4 bg-gradient-card rounded-lg shadow-soft hover-lift border border-border/50 transition-smooth"
+                  className="flex flex-col items-center p-4 glass-card rounded-lg hover-lift transition-smooth"
                 >
                   <tech.icon className="h-8 w-8 text-primary mb-2" />
                   <span className="text-xs text-muted-foreground text-center">

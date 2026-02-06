@@ -1,3 +1,5 @@
+"use client";
+
 import { Github, Linkedin, Mail, Heart, ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
 

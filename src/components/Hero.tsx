@@ -23,7 +23,7 @@ const Hero = () => {
     >
       {/* Overlay */}
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-background/90 dark:bg-background/90 backdrop-blur-[2px]"></div>
+      <div className="absolute inset-0 bg-background/95 dark:bg-background/95 backdrop-blur-[1px]"></div>
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
       <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
@@ -32,38 +32,36 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Greeting */}
-          <div className="animate-fade-in">
-            <p className="text-base sm:text-lg text-muted-foreground mb-4">
-              Hello, I'm
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 perspective-1000">
-              <span className="inline-block animate-text-reveal animation-delay-300">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-fuchsia-400 animate-text-shimmer bg-[length:200%_auto]">
-                  Tesfahun
-                </span>
+          {/* Status Badge */}
+          <div className="animate-fade-in-up mb-8 flex justify-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
-              <br />
-              <span className="inline-block animate-text-reveal animation-delay-500 hover:animate-letter-float transition-all duration-300">
-                <span className="text-foreground">Kere</span>
+              <span className="text-sm font-medium text-muted-foreground">Available for New Projects</span>
+            </div>
+          </div>
+
+          {/* Greeting */}
+          <div className="animate-fade-in-up animation-delay-200">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+              <span className="block text-foreground mb-2">I build</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500 animate-text-shimmer bg-[length:200%_auto]">
+                digital experiences
               </span>
             </h1>
           </div>
 
           {/* Role */}
-          <div className="animate-slide-in-left animation-delay-200">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground">
-              Passionate Developer Building Useful Apps
-            </h2>
+          <div className="animate-fade-in-up animation-delay-400">
+            <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              Hi, I'm <span className="text-foreground font-semibold">Tesfahun Kere</span>. A Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.
+            </p>
           </div>
 
           {/* Description */}
-          <div className="animate-slide-in-right animation-delay-400">
-            <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed px-4">
-              I create modern, responsive web applications with clean code and
-              beautiful user experiences. Passionate about bringing ideas to
-              life through technology.
-            </p>
-          </div>
+
 
           {/* CTA Buttons */}
           <div className="animate-scale-in animation-delay-600">

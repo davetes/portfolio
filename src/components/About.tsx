@@ -15,7 +15,7 @@ const About = () => {
             </h2>
             <div className="h-1 w-20 bg-primary mb-8"></div>
             <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed">
-              I'm a Full Stack Developer guided by a passion for clean code and user-centric design.
+              I'm a <span className="text-foreground font-medium">Bot & Full Stack Web Developer</span> guided by a passion for clean code and automation.
             </p>
           </div>
 

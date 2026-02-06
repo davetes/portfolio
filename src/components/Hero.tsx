@@ -46,7 +46,7 @@ const Hero = () => {
           <div className="animate-fade-in-up animation-delay-400 max-w-2xl mx-auto">
             <p className="text-xl sm:text-2xl text-muted-foreground font-light leading-relaxed">
               I am <span className="text-foreground font-medium">Tesfahun Kere</span>.
-              Engineering accessible, pixel-perfect, and performant web applications with a focus on user experience.
+              A generic-defying <span className="text-foreground font-medium">Bot & Web Developer</span> engineering accessible, pixel-perfect, and performant applications.
             </p>
           </div>
 

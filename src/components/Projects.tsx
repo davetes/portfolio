@@ -8,6 +8,31 @@ import netflixImage from "@/assets/netflix.jpeg";
 const Projects = () => {
   const projects = [
     {
+      title: "MelaTech Miniapp",
+      description: "A full-featured miniapp including an admin panel, backend APIs, and a production-ready frontend deployed on Railway.",
+      image: chatAppImage, // Using as placeholder
+      techStack: ["Next.js", "Node.js", "PostgreSQL", "Railway"],
+      liveUrl: "https://t.me/MelaTechbot", // Assuming .com or similar, verifying with user later if needed, leaving as is for now or just generic
+      status: "completed" as const,
+      date: "Live Production"
+    },
+    {
+      title: "Rohabingo Game",
+      description: "Deployed and managed a production game on a Hostinger Ubuntu VPS, handling server setup, backend services, and live monitoring.",
+      image: netflixImage, // Using as placeholder
+      techStack: ["Django", "Ubuntu VPS", "Hostinger", "DevOps", "Backend Services"],
+      status: "live" as const,
+      date: "Live Production"
+    },
+    {
+      title: "Internal Dashboards",
+      description: "Comprehensive dashboards with user management, reporting, and authentication, handling complex data aggregation logic.",
+      image: taskAppImage, // Using as placeholder
+      techStack: ["React", "Data Visualization", "Auth", "Backend Logic"],
+      status: "completed" as const,
+      date: "Internal Tools"
+    },
+    {
       title: "Chat App",
       description: "A real-time chat app with one-on-one messaging, media sharing, typing indicators, and live updates.",
       image: chatAppImage,

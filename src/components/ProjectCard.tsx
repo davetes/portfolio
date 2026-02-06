@@ -9,7 +9,7 @@ interface ProjectCardProps {
   techStack: string[];
   liveUrl?: string;
   githubUrl?: string;
-  status: "completed" | "in-progress" | "upcoming";
+  status: "completed" | "in-progress" | "upcoming" | "live";
   date: string;
 }
 
@@ -26,11 +26,13 @@ const ProjectCard = ({
   const getStatusColor = () => {
     switch (status) {
       case "completed":
-        return "bg-success text-success-foreground";
+        return "bg-green-500/10 text-green-500 border border-green-500/20";
+      case "live":
+        return "bg-emerald-500 text-white shadow-lg shadow-emerald-500/25";
       case "in-progress":
-        return "bg-primary text-primary-foreground";
+        return "bg-blue-500/10 text-blue-500 border border-blue-500/20";
       case "upcoming":
-        return "bg-muted text-muted-foreground";
+        return "bg-muted text-muted-foreground border border-border/50";
       default:
         return "bg-muted text-muted-foreground";
     }
@@ -40,6 +42,8 @@ const ProjectCard = ({
     switch (status) {
       case "completed":
         return "Completed";
+      case "live":
+        return "Live Production";
       case "in-progress":
         return "In Progress";
       case "upcoming":

@@ -1,28 +1,35 @@
 "use client";
 
+import { useState } from 'react';
 import ProjectCard from './ProjectCard';
 import taskAppImage from '@/assets/farm.jpg';
 import chatAppImage from "@/assets/chat-app.jpeg";
 import netflixImage from "@/assets/netflix.jpeg";
 
+type Category = "all" | "web" | "bot";
+
 const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState<Category>("all");
+
   const projects = [
     {
       title: "MelaTech Miniapp",
       description: "A full-featured miniapp including an admin panel, backend APIs, and a production-ready frontend deployed on Railway.",
       image: chatAppImage, // Using as placeholder
       techStack: ["Next.js", "Node.js", "PostgreSQL", "Railway"],
-      liveUrl: "https://t.me/MelaTechbot", // Assuming .com or similar, verifying with user later if needed, leaving as is for now or just generic
+      liveUrl: "https://t.me/MelaTechbot",
       status: "completed" as const,
-      date: "Live Production"
+      date: "Live Production",
+      category: "bot"
     },
     {
       title: "Rohabingo Game",
       description: "Deployed and managed a production game on a Hostinger Ubuntu VPS, handling server setup, backend services, and live monitoring.",
       image: netflixImage, // Using as placeholder
-      techStack: ["Django", "Ubuntu VPS", "Hostinger", "DevOps", "Backend Services"],
+      techStack: ["Django", "Ubuntu VPS", "Hostinger", "DevOps"],
       status: "live" as const,
-      date: "Live Production"
+      date: "Live Production",
+      category: "web"
     },
     {
       title: "Internal Dashboards",
@@ -30,7 +37,8 @@ const Projects = () => {
       image: taskAppImage, // Using as placeholder
       techStack: ["React", "Data Visualization", "Auth", "Backend Logic"],
       status: "completed" as const,
-      date: "Internal Tools"
+      date: "Internal Tools",
+      category: "web"
     },
     {
       title: "Chat App",
@@ -40,7 +48,8 @@ const Projects = () => {
       liveUrl: "https://chatapp-0h90.onrender.com/",
       githubUrl: "https://github.com/davetes",
       status: "completed" as const,
-      date: "February 2024"
+      date: "February 2024",
+      category: "web"
     },
     {
       title: "Netflix Clone",
@@ -51,6 +60,7 @@ const Projects = () => {
       githubUrl: "https://github.com/davetes/netflix",
       date: "December 2024",
       status: "completed" as const,
+      category: "web"
     },
     {
       title: "FarmGebeya",
@@ -58,8 +68,19 @@ const Projects = () => {
       image: taskAppImage,
       techStack: ["Next.js", "Node.js", "PostgreSQL"],
       status: "upcoming" as const,
-      date: "May 2025"
+      date: "May 2025",
+      category: "web"
     },
+  ];
+
+  const filteredProjects = projects.filter(project =>
+    activeCategory === "all" ? true : project.category === activeCategory
+  );
+
+  const categories = [
+    { id: "all", label: "All Projects" },
+    { id: "bot", label: "Bots & Mini Apps" },
+    { id: "web", label: "Web Development" }
   ];
 
   return (
@@ -67,24 +88,41 @@ const Projects = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="mb-20">
+          <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
               Selected Works
             </h2>
             <div className="h-1 w-20 bg-primary mb-8"></div>
-            <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-8">
               A collection of projects exploring performance, design, and scalability.
             </p>
+
+            {/* Category Tabs */}
+            <div className="flex flex-wrap gap-4">
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id as Category)}
+                  className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat.id
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 scale-105"
+                      : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                    }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
+            {filteredProjects.map((project, index) => (
               <div
-                key={index}
+                key={project.title}
                 className="animate-fade-in-up"
-                style={{ animationDelay: `${index * 150}ms` }}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
+                {/* @ts-ignore - Category prop is internal, not passed to Card */}
                 <ProjectCard {...project} />
               </div>
             ))}

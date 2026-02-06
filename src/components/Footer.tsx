@@ -17,9 +17,9 @@ const Footer = () => {
 
   const quickLinks = [
     { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
+    { id: "skills", label: "Skills" },
+    { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -42,7 +42,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-card border-t border-border/50">
+    <footer className="bg-background border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">

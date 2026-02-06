@@ -93,7 +93,8 @@ const Contact = () => {
   const isFormValid = formData.name && formData.email && formData.message;
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-24 bg-gradient-to-b from-background to-background/50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]"></div>
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -123,9 +124,9 @@ const Contact = () => {
 
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                      <info.icon className="h-6 w-6 text-white" />
+                  <div key={index} className="flex items-center space-x-4 glass-card p-4 rounded-lg hover-lift">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <info.icon className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <h4 className="text-sm font-medium text-muted-foreground">
@@ -146,7 +147,7 @@ const Contact = () => {
                 ))}
               </div>
 
-              <div className="mt-8 p-6 bg-gradient-card rounded-xl border border-border/50">
+              <div className="mt-8 p-6 glass-card rounded-xl">
                 <h4 className="text-lg font-semibold mb-3 text-foreground">
                   Response Time
                 </h4>

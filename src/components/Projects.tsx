@@ -23,13 +23,22 @@ const Projects = () => {
       category: "bot"
     },
     {
+      title: "Telegram Bot & Admin Panel",
+      description: "A fully automated Telegram bot with a web dashboard for managing groups, scheduling bulk messages, and analyzing user engagement.",
+      image: chatAppImage, // Using as placeholder
+      techStack: ["Node.js", "React Admin", "Telegram API", "MongoDB"],
+      status: "completed" as const,
+      date: "Client Project",
+      category: "bot"
+    },
+    {
       title: "Rohabingo Game",
       description: "Deployed and managed a production game on a Hostinger Ubuntu VPS, handling server setup, backend services, and live monitoring.",
       image: netflixImage, // Using as placeholder
       techStack: ["Django", "Ubuntu VPS", "Hostinger", "DevOps"],
       status: "live" as const,
       date: "Live Production",
-      category: "web"
+      category: "bot"
     },
     {
       title: "Internal Dashboards",
@@ -104,8 +113,8 @@ const Projects = () => {
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id as Category)}
                   className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat.id
-                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 scale-105"
-                      : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 scale-105"
+                    : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"
                     }`}
                 >
                   {cat.label}

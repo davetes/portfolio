@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail, Heart, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
 
 const Footer = () => {
@@ -42,16 +42,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-background border-t border-border">
-      <div className="container mx-auto px-4 py-12">
+    <footer className="bg-background border-t border-border/50">
+      <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12">
             {/* Brand & Description */}
             <div className="md:col-span-1">
-              <h3 className="text-2xl font-bold text-gradient-primary mb-4">
+              <h3 className="text-2xl font-bold font-heading mb-4 text-foreground">
                 Tesfahun Kere
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="text-muted-foreground leading-relaxed mb-8">
                 Full Stack Developer passionate about creating modern, scalable
                 web applications. Always learning, always building.
               </p>
@@ -63,7 +63,7 @@ const Footer = () => {
                     key={index}
                     variant="ghost"
                     size="icon"
-                    className="hover-glow text-muted-foreground hover:text-primary"
+                    className="hover:bg-primary/10 hover:text-primary transition-colors"
                     asChild
                   >
                     <a
@@ -81,15 +81,15 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div className="md:col-span-1">
-              <h4 className="text-lg font-semibold text-foreground mb-4">
-                Quick Links
+              <h4 className="text-lg font-semibold font-heading text-foreground mb-6">
+                Navigation
               </h4>
-              <nav className="space-y-2">
+              <nav className="space-y-3">
                 {quickLinks.map((link) => (
                   <button
                     key={link.id}
                     onClick={() => scrollToSection(link.id)}
-                    className="block text-muted-foreground hover:text-primary transition-colors text-left"
+                    className="block text-muted-foreground hover:text-primary transition-colors text-left text-sm"
                   >
                     {link.label}
                   </button>
@@ -99,19 +99,19 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="md:col-span-1">
-              <h4 className="text-lg font-semibold text-foreground mb-4">
-                Get In Touch
+              <h4 className="text-lg font-semibold font-heading text-foreground mb-6">
+                Connect
               </h4>
-              <div className="space-y-2 text-muted-foreground">
-                <p>📧 tesfa4706@gmail.com</p>
-                <p>📱 +251-968-651-265</p>
-                <p>📍 Addis Ababa, Ethiopia</p>
+              <div className="space-y-4 text-sm text-muted-foreground">
+                <p>tesfa4706@gmail.com</p>
+                <p>+251-968-651-265</p>
+                <p>Addis Ababa, Ethiopia</p>
               </div>
 
-              <div className="mt-6">
+              <div className="mt-8">
                 <Button
                   onClick={() => scrollToSection("contact")}
-                  className="bg-gradient-primary hover:opacity-90 transition-smooth"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors h-11 px-6 rounded-lg"
                 >
                   Start a Project
                 </Button>
@@ -120,11 +120,11 @@ const Footer = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-border/50 mt-8 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="border-t border-border/50 mt-16 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Copyright */}
-              <p className="text-muted-foreground text-sm mb-4 md:mb-0">
-                © {currentYear} Tesfahun Kere.
+              <p className="text-muted-foreground text-sm">
+                © {currentYear} Tesfahun Kere. All rights reserved.
               </p>
 
               {/* Back to Top */}
@@ -132,7 +132,7 @@ const Footer = () => {
                 variant="ghost"
                 size="sm"
                 onClick={scrollToTop}
-                className="hover-glow text-muted-foreground hover:text-primary"
+                className="text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 <ArrowUp className="h-4 w-4 mr-2" />
                 Back to Top

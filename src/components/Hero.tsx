@@ -1,8 +1,7 @@
 "use client";
 
-import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
-import heroBackground from "@/assets/hero-background.jpg";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -13,139 +12,84 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: `url(${heroBackground})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
-      {/* Overlay */}
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-background/95 dark:bg-background/95 backdrop-blur-[1px]"></div>
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-      <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-      <div className="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-500/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+      {/* Abstract Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background opacity-50"></div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Greeting */}
-          {/* Status Badge */}
-          <div className="animate-fade-in-up mb-8 flex justify-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+        <div className="max-w-5xl mx-auto text-center space-y-8">
+
+          {/* Status Badge - Refined */}
+          <div className="animate-fade-in flex justify-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/40 bg-background/50 backdrop-blur-sm text-sm text-muted-foreground hover:bg-background/80 transition-colors cursor-default">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="text-sm font-medium text-muted-foreground">Available for New Projects</span>
+              Available for New Projects
             </div>
           </div>
 
-          {/* Greeting */}
-          <div className="animate-fade-in-up animation-delay-200">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
-              <span className="block text-foreground mb-2">I build</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500 animate-text-shimmer bg-[length:200%_auto]">
-                digital experiences
+          {/* Main Typography */}
+          <div className="space-y-4 animate-fade-in-up animation-delay-200">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-heading font-bold tracking-tighter text-foreground leading-[0.9]">
+              Building <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/50">
+                Digital Value
               </span>
             </h1>
           </div>
 
-          {/* Role */}
-          <div className="animate-fade-in-up animation-delay-400">
-            <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Hi, I'm <span className="text-foreground font-semibold">Tesfahun Kere</span>. A Full Stack Developer passionate about building accessible, pixel-perfect, and performant web applications.
+          {/* Subtext */}
+          <div className="animate-fade-in-up animation-delay-400 max-w-2xl mx-auto">
+            <p className="text-xl sm:text-2xl text-muted-foreground font-light leading-relaxed">
+              I am <span className="text-foreground font-medium">Tesfahun Kere</span>.
+              Engineering accessible, pixel-perfect, and performant web applications with a focus on user experience.
             </p>
           </div>
 
-          {/* Description */}
+          {/* Actions */}
+          <div className="animate-fade-in-up animation-delay-600 flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+            <Button
+              onClick={() => scrollToSection("projects")}
+              className="h-14 px-8 rounded-full bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 hover:scale-105"
+            >
+              View Selected Work
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
 
-
-          {/* CTA Buttons */}
-          <div className="animate-scale-in animation-delay-600">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 px-4">
-              <Button
-                onClick={() => scrollToSection("projects")}
-                className="bg-gradient-primary hover:opacity-90 transition-smooth px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover-lift w-full sm:w-auto"
+            <Button
+              variant="outline"
+              className="h-14 px-8 rounded-full border-border/50 hover:bg-secondary/50 backdrop-blur-sm transition-all duration-300"
+              asChild
+            >
+              <a
+                href="/tesfajo.pdf"
+                download="Tesfahun_Kere_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                View My Work
-                <ArrowDown className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-              </Button>
-
-              <Button
-                variant="outline"
-                className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover-glow border-primary/20 hover:border-primary/40 w-full sm:w-auto"
-                asChild
-              >
-                <a
-                  href="/tesfajo.pdf"
-                  download="Tesfahun_Kere_CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  Download CV
-                </a>
-              </Button>
-            </div>
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </a>
+            </Button>
           </div>
 
-          {/* Social Links */}
-          <div className="animate-fade-in animation-delay-800">
-            <div className="flex justify-center space-x-6">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover-glow text-muted-foreground hover:text-primary"
-                asChild
-              >
-                <a
-                  href="https://github.com/davetes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="h-6 w-6" />
-                </a>
-              </Button>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover-glow text-muted-foreground hover:text-primary"
-                asChild
-              >
-                <a
-                  href="https://www.linkedin.com/in/tesfahun-kere-22b54a333/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Linkedin className="h-6 w-6" />
-                </a>
-              </Button>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover-glow text-muted-foreground hover:text-primary"
-                onClick={() => scrollToSection("contact")}
-              >
-                <Mail className="h-6 w-6" />
-              </Button>
-            </div>
+          {/* Social Proof/Links - Minimalist */}
+          <div className="animate-fade-in animation-delay-800 pt-12 flex justify-center gap-6 opacity-60 hover:opacity-100 transition-opacity duration-300">
+            <a href="https://github.com/davetes" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <Github className="h-6 w-6" />
+            </a>
+            <a href="https://www.linkedin.com/in/tesfahun-kere-22b54a333/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <Linkedin className="h-6 w-6" />
+            </a>
+            <button onClick={() => scrollToSection("contact")} className="hover:text-primary transition-colors">
+              <Mail className="h-6 w-6" />
+            </button>
           </div>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <button
-          onClick={() => scrollToSection("about")}
-          className="animate-bounce-subtle text-muted-foreground hover:text-primary transition-smooth"
-        >
-          <ArrowDown className="h-6 w-6" />
-        </button>
       </div>
     </section>
   );

@@ -5,58 +5,50 @@ import taskAppImage from '@/assets/farm.jpg';
 import chatAppImage from "@/assets/chat-app.jpeg";
 import netflixImage from "@/assets/netflix.jpeg";
 
-
 const Projects = () => {
   const projects = [
-
-
     {
       title: "Chat App",
-      description: "A real-time chat app with one-on-one messaging, media sharing, typing indicators, online status, and live message updates.",
+      description: "A real-time chat app with one-on-one messaging, media sharing, typing indicators, and live updates.",
       image: chatAppImage,
-      techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "RESTfullAPI", "Socket.io"],
+      techStack: ["React", "Node.js", "Socket.io", "MongoDB"],
       liveUrl: "https://chatapp-0h90.onrender.com/",
       githubUrl: "https://github.com/davetes",
       status: "completed" as const,
       date: "February 2024"
     },
     {
-      title: "netflix-clone",
-      description: "A Netflix clone featuring secure user login, movie browsing by category, trailer previews, and a responsive UI built with modern web technologies.",
+      title: "Netflix Clone",
+      description: "A streaming platform clone featuring secure login, movie browsing, trailer previews, and responsive UI.",
       image: netflixImage,
-      techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "RESTfullAPI"],
+      techStack: ["React", "Express.js", "MongoDB", "TMDB API"],
       liveUrl: "https://netflix-2g7n.onrender.com",
       githubUrl: "https://github.com/davetes/netflix",
       date: "December 2024",
       status: "completed" as const,
-
-
     },
-
     {
       title: "FarmGebeya",
-      description: "A user-centric e-commerce platform for buying and selling agricultural products, with order tracking, secure checkout, and farmer-friendly features.",
+      description: "An e-commerce platform for agricultural products with order tracking and secure checkout.",
       image: taskAppImage,
-      techStack: ["Nextjs", "React", "Nodejs", "RESTfullAPI"],
+      techStack: ["Next.js", "Node.js", "PostgreSQL"],
       status: "upcoming" as const,
       date: "May 2025"
     },
-
   ];
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-t from-background to-background/50 relative">
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]"></div>
+    <section id="projects" className="py-24 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              My <span className="text-gradient-primary">Projects</span>
+          <div className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+              Selected Works
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my recent work and side projects. Each project represents
-              my commitment to quality, innovation, and user experience.
+            <div className="h-1 w-20 bg-primary mb-8"></div>
+            <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed">
+              A collection of projects exploring performance, design, and scalability.
             </p>
           </div>
 
@@ -65,7 +57,7 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="animate-scale-in"
+                className="animate-fade-in-up"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <ProjectCard {...project} />
@@ -74,18 +66,18 @@ const Projects = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-16">
-            <p className="text-muted-foreground mb-6">
-              Interested in working together? Let's discuss your next project.
+          <div className="text-center mt-20 pt-10 border-t border-border/40">
+            <p className="text-muted-foreground mb-6 font-light">
+              Interested in the code? Check out my GitHub or get in touch.
             </p>
             <button
               onClick={() => {
                 const element = document.getElementById('contact');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full hover-lift shadow-lg shadow-primary/20 transition-all duration-300"
+              className="text-primary hover:text-primary/80 font-medium hover:underline underline-offset-4 transition-all"
             >
-              Get In Touch
+              Let's Discuss Your Project &rarr;
             </button>
           </div>
         </div>

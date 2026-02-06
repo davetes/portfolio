@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -93,65 +93,53 @@ const Contact = () => {
   const isFormValid = formData.name && formData.email && formData.message;
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-background to-background/50 relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:20px_20px]"></div>
+    <section id="contact" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Get In <span className="text-gradient-primary">Touch</span>
+          <div className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+              Get in Touch
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind or want to discuss opportunities? I'd love
-              to hear from you. Let's create something amazing together.
+            <div className="h-1 w-20 bg-primary mb-8"></div>
+            <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed">
+              Available for freelance opportunities and interesting collaborations.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className="animate-slide-in-left">
-              <h3 className="text-2xl font-semibold mb-8 text-foreground">
-                Let's Connect
-              </h3>
-
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                I'm always open to discussing new opportunities, innovative
-                projects, or just having a friendly chat about technology and
-                development. Feel free to reach out through any of the channels
-                below.
-              </p>
-
+            <div className="space-y-8">
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center space-x-4 glass-card p-4 rounded-lg hover-lift">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <info.icon className="h-6 w-6 text-primary" />
+                  <div key={index} className="flex items-center space-x-6 glass-card p-6 rounded-xl hover:bg-secondary/40 transition-colors">
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                      <info.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-muted-foreground">
+                      <h4 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-1">
                         {info.title}
                       </h4>
                       {info.link !== "#" ? (
                         <a
                           href={info.link}
-                          className="text-foreground hover:text-primary transition-colors"
+                          className="text-lg text-foreground font-medium hover:text-primary transition-colors"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <span className="text-foreground">{info.value}</span>
+                        <span className="text-lg text-foreground font-medium">{info.value}</span>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 p-6 glass-card rounded-xl">
+              <div className="p-8 rounded-2xl bg-secondary/20 border border-border/50">
                 <h4 className="text-lg font-semibold mb-3 text-foreground">
                   Response Time
                 </h4>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground leading-relaxed">
                   I typically respond to emails within 24 hours. For urgent
                   inquiries, feel free to reach out via phone or LinkedIn.
                 </p>
@@ -159,12 +147,12 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="animate-slide-in-right">
+            <div className="glass-card p-8 rounded-2xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Your Name *
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">
+                      Your Name
                     </label>
                     <Input
                       type="text"
@@ -173,13 +161,13 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="John Doe"
                       required
-                      className="w-full"
+                      className="bg-background/50 border-border/50 focus:ring-primary/20"
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email Address *
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">
+                      Email Address
                     </label>
                     <Input
                       type="email"
@@ -188,13 +176,13 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="john@example.com"
                       required
-                      className="w-full"
+                      className="bg-background/50 border-border/50 focus:ring-primary/20"
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">
                     Subject
                   </label>
                   <Input
@@ -203,13 +191,13 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Project Discussion"
-                    className="w-full"
+                    className="bg-background/50 border-border/50 focus:ring-primary/20"
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Message *
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">
+                    Message
                   </label>
                   <Textarea
                     name="message"
@@ -218,23 +206,23 @@ const Contact = () => {
                     placeholder="Tell me about your project or how I can help you..."
                     rows={6}
                     required
-                    className="w-full resize-none"
+                    className="resize-none bg-background/50 border-border/50 focus:ring-primary/20"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   disabled={!isFormValid || isSubmitting}
-                  className="w-full bg-gradient-primary hover:opacity-90 transition-smooth py-6 text-lg"
+                  className="w-full h-12 text-base font-medium rounded-lg"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center">
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Sending Message...
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Sending...
                     </div>
                   ) : (
                     <div className="flex items-center">
-                      <Send className="mr-2 h-5 w-5" />
+                      <Send className="mr-2 h-4 w-4" />
                       Send Message
                     </div>
                   )}

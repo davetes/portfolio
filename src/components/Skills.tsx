@@ -25,8 +25,7 @@ const Skills = () => {
         { name: "React", level: 85 },
         { name: "Next.js", level: 80 },
         { name: "Figma", level: 75 }
-      ],
-      gradient: "from-blue-500 to-cyan-500"
+      ]
     },
     {
       title: "Backend Development",
@@ -37,8 +36,7 @@ const Skills = () => {
         { name: "MongoDB", level: 85 },
         { name: "REST APIs", level: 88 },
         { name: "JWT Auth", level: 75 }
-      ],
-      gradient: "from-green-500 to-emerald-500"
+      ]
     },
     {
       title: "Tools & Technologies",
@@ -48,8 +46,7 @@ const Skills = () => {
         { name: "Firebase", level: 78 },
         { name: "Vercel", level: 85 },
         { name: "VS Code", level: 95 }
-      ],
-      gradient: "from-purple-500 to-pink-500"
+      ]
     },
     {
       title: "Soft Skills",
@@ -59,23 +56,20 @@ const Skills = () => {
         { name: "Communication", level: 88 },
         { name: "Teamwork", level: 90 },
         { name: "Leadership", level: 80 }
-      ],
-      gradient: "from-orange-500 to-red-500"
+      ]
     }
   ];
 
   return (
-    <section id="skills" className="py-24 bg-secondary/30 relative border-t border-b border-border/50">
+    <section id="skills" className="py-24 relative border-t border-border/40">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              My <span className="text-gradient-primary">Skills</span>
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+              Core Skills
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive overview of my technical expertise and professional abilities
-            </p>
+            <div className="h-1 w-20 bg-primary mb-8"></div>
           </div>
 
           {/* Skills Grid */}
@@ -83,15 +77,14 @@ const Skills = () => {
             {skillCategories.map((category, categoryIndex) => (
               <div
                 key={categoryIndex}
-                className="glass-card p-6 rounded-xl hover-lift animate-scale-in"
-                style={{ animationDelay: `${categoryIndex * 150}ms` }}
+                className="glass-card p-6 rounded-2xl hover:bg-secondary/40 transition-colors"
               >
                 {/* Category Header */}
-                <div className="mb-6">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${category.gradient} rounded-lg flex items-center justify-center mb-4`}>
-                    <category.icon className="h-6 w-6 text-white" />
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="p-2.5 bg-primary/10 rounded-lg">
+                    <category.icon className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground">
+                  <h3 className="text-lg font-semibold font-heading">
                     {category.title}
                   </h3>
                 </div>
@@ -99,9 +92,9 @@ const Skills = () => {
                 {/* Skills List */}
                 <div className="space-y-4">
                   {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="space-y-2">
+                    <div key={skillIndex} className="space-y-1.5">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-foreground">
+                        <span className="text-sm font-medium text-foreground/80">
                           {skill.name}
                         </span>
                         <span className="text-xs text-muted-foreground">
@@ -110,12 +103,12 @@ const Skills = () => {
                       </div>
 
                       {/* Progress Bar */}
-                      <div className="w-full bg-muted rounded-full h-2">
+                      <div className="w-full bg-secondary rounded-full h-1.5 overflow-hidden">
                         <div
-                          className={`h-2 bg-gradient-to-r ${category.gradient} rounded-full transition-all duration-1000 ease-out`}
+                          className="h-full bg-primary/80 rounded-full transition-all duration-1000 ease-out"
                           style={{
                             width: `${skill.level}%`,
-                            animationDelay: `${(categoryIndex * 150) + (skillIndex * 100)}ms`
+                            transitionDelay: `${(categoryIndex * 150) + (skillIndex * 50)}ms`
                           }}
                         ></div>
                       </div>
@@ -126,31 +119,28 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Additional Skills Icons */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-semibold text-center mb-8 text-foreground">
-              Additional Technologies
+          {/* Additional Skills Icons - Minimalist */}
+          <div className="mt-20 pt-10 border-t border-border/40">
+            <h3 className="text-xl font-semibold mb-8 text-foreground/80">
+              Other Proficiencies
             </h3>
 
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-wrap gap-4">
               {[
-                { icon: Database, name: "Database Design" },
-                { icon: Globe, name: "Web Standards" },
-                { icon: Shield, name: "Security Best Practices" },
-                { icon: Users, name: "Team Collaboration" },
-                { icon: MessageCircle, name: "Client Communication" },
-                { icon: Target, name: "Project Management" },
-                { icon: Lightbulb, name: "Innovation" },
-                { icon: Palette, name: "UI/UX Design" }
+                "Database Design",
+                "Web Standards",
+                "Security Best Practices",
+                "Team Collaboration",
+                "Client Communication",
+                "Project Management",
+                "Innovation",
+                "UI/UX Design"
               ].map((tech, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center p-4 glass-card rounded-lg hover-lift transition-smooth"
+                  className="px-4 py-2 rounded-full border border-border/50 bg-background/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
                 >
-                  <tech.icon className="h-8 w-8 text-primary mb-2" />
-                  <span className="text-xs text-muted-foreground text-center">
-                    {tech.name}
-                  </span>
+                  {tech}
                 </div>
               ))}
             </div>

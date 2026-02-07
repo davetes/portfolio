@@ -41,8 +41,8 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-      ? 'glass py-3'
+    <nav className={`fixed top-2 left-2 right-2 md:top-4 md:left-4 md:right-4 z-40 transition-all duration-300 rounded-t-3xl ${isScrolled
+      ? 'glass py-3 border-b border-border/10'
       : 'bg-transparent py-6'
       }`}>
       <div className="container mx-auto px-4">

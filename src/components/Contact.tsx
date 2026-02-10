@@ -159,7 +159,7 @@ const Contact = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Doe"
+                      placeholder="Enter your name"
                       required
                       className="bg-background/50 border-border/50 focus:ring-primary/20"
                     />
@@ -174,25 +174,11 @@ const Contact = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@example.com"
+                      placeholder="Enter your email address"
                       required
                       className="bg-background/50 border-border/50 focus:ring-primary/20"
                     />
                   </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">
-                    Subject
-                  </label>
-                  <Input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="Project Discussion"
-                    className="bg-background/50 border-border/50 focus:ring-primary/20"
-                  />
                 </div>
 
                 <div className="space-y-2">

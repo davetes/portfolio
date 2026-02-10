@@ -3,6 +3,17 @@
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
 
+const UpworkIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 32 32"
+    className={className}
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M24.9 9.6c-2.3 0-4.1 1.1-5.2 2.8-.8-1.8-1.4-3.8-1.8-5.8h-4.2v8.1c0 2.3-1.3 3.9-3.4 3.9-2 0-3.3-1.6-3.3-3.9V6.6H2.8v8.4c0 4.4 3.1 7.5 7.6 7.5 3.3 0 5.8-1.6 7-4.1 1.2 2.5 3.4 4.1 6.5 4.1 4.7 0 7.6-3.3 7.6-7.5 0-4.2-2.9-7.4-7.6-7.4zm-.3 10.7c-2 0-3.3-1.6-4.1-3.6.8-2.4 2-4.1 4.2-4.1 2.1 0 3.6 1.6 3.6 3.8 0 2.2-1.5 3.9-3.7 3.9z" />
+  </svg>
+);
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -19,24 +30,29 @@ const Footer = () => {
     { id: "home", label: "Home" },
     { id: "projects", label: "Projects" },
     { id: "skills", label: "Skills" },
-    { id: "about", label: "About" },
+    { id: "testimonials", label: "Testimonials" },
     { id: "contact", label: "Contact" },
   ];
 
   const socialLinks = [
     {
       icon: Github,
-      href: "https://github.com",
+      href: "https://github.com/davetes",
       label: "GitHub",
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/tesfahun-kere-22b54a333/",
       label: "LinkedIn",
     },
     {
+      icon: UpworkIcon,
+      href: "https://www.upwork.com/",
+      label: "Upwork",
+    },
+    {
       icon: Mail,
-      href: "mailto:tesfahun.kere@example.com",
+      href: "mailto:tesfa4706@gmail.com",
       label: "Email",
     },
   ];
@@ -45,25 +61,25 @@ const Footer = () => {
     <footer className="bg-background border-t border-border/50">
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr_1fr]">
             {/* Brand & Description */}
             <div className="md:col-span-1">
-              <h3 className="text-2xl font-bold font-heading mb-4 text-foreground">
+              <h3 className="text-2xl font-bold font-heading mb-3 text-foreground">
                 Tesfahun Kere
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Full Stack Developer passionate about creating modern, scalable
-                web applications. Always learning, always building.
+                Full Stack Developer focused on building modern, scalable products
+                with clean architecture and pixel‑perfect UI.
               </p>
 
               {/* Social Links */}
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map((social, index) => (
                   <Button
                     key={index}
                     variant="ghost"
                     size="icon"
-                    className="hover:bg-primary/10 hover:text-primary transition-colors"
+                    className="h-10 w-10 rounded-full hover:bg-primary/10 hover:text-primary transition-colors"
                     asChild
                   >
                     <a

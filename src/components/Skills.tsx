@@ -1,15 +1,7 @@
 import {
   Bot,
   Server,
-  Globe,
-  Cpu,
-  Database,
-  Cloud,
-  Layout,
-  Terminal,
-  Shield,
-  GitBranch,
-  Code
+  Globe
 } from 'lucide-react';
 import {
   SiTelegram,
@@ -141,30 +133,6 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Additional Tooling */}
-          <div className="mt-16 pt-10 border-t border-border/40">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="md:w-1/3">
-                <h4 className="text-xl font-semibold mb-2 font-heading">Development Arsenal</h4>
-                <p className="text-muted-foreground text-sm">Tools and software I use daily to accelerate development.</p>
-              </div>
-              <div className="md:w-2/3 flex flex-wrap gap-4 justify-center md:justify-end">
-                {[
-                  { icon: Code, name: "VS Code" },
-                  { icon: GitBranch, name: "Git" },
-                  { icon: Terminal, name: "Bash" },
-                  { icon: Database, name: "Postman" },
-                  { icon: Layout, name: "Figma" },
-                  { icon: Shield, name: "Linux" }
-                ].map((tool, i) => (
-                  <div key={i} className="flex items-center gap-2 px-4 py-2 bg-secondary/20 rounded-lg border border-border/30 text-sm text-muted-foreground">
-                    <tool.icon className="w-4 h-4" />
-                    {tool.name}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

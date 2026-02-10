@@ -36,7 +36,7 @@ const Navbar = () => {
     { id: 'home', label: 'Home' },
     { id: 'projects', label: 'Projects' },
     { id: 'skills', label: 'Skills' },
-    { id: 'about', label: 'About' },
+    { id: 'testimonials', label: 'About' },
     { id: 'contact', label: 'Contact' },
   ];
 

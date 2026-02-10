@@ -83,28 +83,31 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 relative border-t border-border/40 overflow-hidden">
+    <section id="skills" className="pt-8 pb-24 relative border-t border-border/40 overflow-hidden">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:30px_30px]"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+          <div className="mb-16 flex flex-col gap-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold w-fit">
+              Expertise
+            </div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold">
               Technical Expertise
             </h2>
-            <div className="h-1 w-20 bg-primary mb-8"></div>
-            <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed">
+            <div className="h-1 w-20 bg-primary"></div>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl font-light leading-relaxed">
               A deep dive into my core competencies, focusing on bot automation, full-stack development, and robust backend infrastructure.
             </p>
           </div>
 
           {/* Skills Grid */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {skillCategories.map((category, index) => (
               <div
                 key={index}
-                className="glass-card p-8 rounded-2xl hover:bg-secondary/40 transition-colors group relative overflow-hidden"
+                className="group relative overflow-hidden rounded-2xl border border-border/40 bg-background/60 p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_12px_40px_rgba(15,23,42,0.15)]"
               >
                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                   <category.icon className="w-32 h-32 text-primary" />
@@ -126,7 +129,7 @@ const Skills = () => {
                     {category.skills.map((skill, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1.5 bg-background/50 border border-border/50 rounded-lg text-sm text-foreground/80 font-medium flex items-center gap-2 hover:bg-primary/10 hover:text-primary transition-colors cursor-default"
+                        className="px-3 py-1.5 bg-background/60 border border-border/50 rounded-lg text-sm text-foreground/80 font-medium flex items-center gap-2 hover:bg-primary/10 hover:text-primary transition-colors cursor-default"
                       >
                         <skill.icon className="w-4 h-4" />
                         {skill.name}
@@ -139,7 +142,7 @@ const Skills = () => {
           </div>
 
           {/* Additional Tooling */}
-          <div className="mt-20 pt-10 border-t border-border/40">
+          <div className="mt-16 pt-10 border-t border-border/40">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="md:w-1/3">
                 <h4 className="text-xl font-semibold mb-2 font-heading">Development Arsenal</h4>

@@ -97,7 +97,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="pt-12 pb-8 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -141,21 +141,6 @@ const Projects = () => {
             ))}
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center mt-20 pt-10 border-t border-border/40">
-            <p className="text-muted-foreground mb-6 font-light">
-              Interested in the code? Check out my GitHub or get in touch.
-            </p>
-            <button
-              onClick={() => {
-                const element = document.getElementById('contact');
-                element?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="text-primary hover:text-primary/80 font-medium hover:underline underline-offset-4 transition-all"
-            >
-              Let's Discuss Your Project &rarr;
-            </button>
-          </div>
         </div>
       </div>
     </section>

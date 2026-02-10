@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles, ShieldCheck, Zap, Code2 } from "lucide-react";
+import { ArrowRight, Download, Sparkles, ShieldCheck, Zap, Code2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -41,7 +41,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 px-4"
+      className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-20 px-4"
     >
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
@@ -113,7 +113,7 @@ const Hero = () => {
               className="relative"
             >
               <div className="absolute -inset-x-20 -inset-y-6 bg-gradient-to-r from-transparent via-primary/5 to-transparent blur-2xl opacity-50" />
-              <h1 className="relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[0.9]">
+              <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05]">
                 <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
                   Building
                 </span>
@@ -131,7 +131,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="max-w-3xl mx-auto lg:mx-0"
             >
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
                 I'm{" "}
                 <span className="relative inline-block">
                   <span className="text-foreground font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent animate-gradient-x">
@@ -184,44 +184,6 @@ const Hero = () => {
                 Download Resume
               </a>
             </Button>
-          </motion.div>
-
-          {/* Social Links with Hover Effects */}
-            <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="pt-16 flex justify-center lg:justify-start"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 backdrop-blur-sm border border-border/30">
-              <span className="text-sm text-muted-foreground mr-2">Connect</span>
-              <div className="flex items-center gap-4">
-                <a
-                  href="https://github.com/davetes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-2 rounded-full hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-                >
-                  <Github className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                </a>
-                <div className="h-4 w-[1px] bg-border/50" />
-                <a
-                  href="https://www.linkedin.com/in/tesfahun-kere-22b54a333/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-2 rounded-full hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-                >
-                  <Linkedin className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                </a>
-                <div className="h-4 w-[1px] bg-border/50" />
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="group p-2 rounded-full hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-                >
-                  <Mail className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                </button>
-              </div>
-            </div>
           </motion.div>
 
           {/* Scroll Indicator */}

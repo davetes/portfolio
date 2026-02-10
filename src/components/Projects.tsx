@@ -89,7 +89,7 @@ const Projects = () => {
     {
       title: "FarmGebeya",
       description: "An e-commerce platform for agricultural products with order tracking and secure checkout.",
-      images: [taskAppImage, netflixImage],
+      images: [taskAppImage],
       techStack: ["Next.js", "Node.js", "PostgreSQL"],
       status: "upcoming" as const,
       date: "May 2025",

@@ -47,7 +47,7 @@ const Footer = () => {
     },
     {
       icon: UpworkIcon,
-      href: "https://www.upwork.com/",
+      href: "https://www.upwork.com/freelancers/~0186f63640d005f5ec",
       label: "Upwork",
     },
     {

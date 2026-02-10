@@ -1,4 +1,5 @@
 import { User, Heart, Target, Coffee, Code2, Globe } from "lucide-react";
+import Testimonials from "./Testimonials";
 
 const About = () => {
   return (
@@ -75,6 +76,10 @@ const About = () => {
                 <div className="px-4 py-2 bg-background/50 rounded-lg text-sm font-medium border border-border/50">UX First</div>
               </div>
             </div>
+          </div>
+
+          <div className="mt-20">
+            <Testimonials />
           </div>
         </div>
       </div>

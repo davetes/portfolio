@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles, ShieldCheck, Zap, Code2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -80,14 +80,17 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto relative z-10">
-        <div className="max-w-5xl mx-auto text-center space-y-10">
+        <div className="max-w-6xl mx-auto grid gap-12 items-center lg:grid-cols-[1.1fr_0.9fr]">
+
+          {/* Left Column */}
+          <div className="space-y-10 text-center lg:text-left">
 
           {/* Status Badge with Animation */}
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex justify-center"
+            className="flex justify-center lg:justify-start"
           >
             <div className="group inline-flex items-center gap-3 px-4 py-2.5 rounded-full border border-primary/20 bg-background/80 backdrop-blur-xl hover:bg-background/90 hover:border-primary/30 transition-all duration-300 cursor-default">
               <div className="relative">
@@ -102,8 +105,8 @@ const Hero = () => {
           </motion.div>
 
           {/* Main Heading with Gradient Text */}
-          <div className="space-y-6">
-            <motion.div
+            <div className="space-y-6">
+              <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -122,11 +125,11 @@ const Hero = () => {
             </motion.div>
 
             {/* Animated Subtitle */}
-            <motion.div
+              <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="max-w-3xl mx-auto"
+              className="max-w-3xl mx-auto lg:mx-0"
             >
               <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
                 I'm{" "}
@@ -150,11 +153,11 @@ const Hero = () => {
           </div>
 
           {/* Action Buttons */}
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-10"
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-10"
           >
             <Button
               onClick={() => scrollToSection("projects")}
@@ -184,11 +187,11 @@ const Hero = () => {
           </motion.div>
 
           {/* Social Links with Hover Effects */}
-          <motion.div
+            <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="pt-16"
+            className="pt-16 flex justify-center lg:justify-start"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 backdrop-blur-sm border border-border/30">
               <span className="text-sm text-muted-foreground mr-2">Connect</span>
@@ -222,7 +225,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Scroll Indicator */}
-          <motion.div
+            <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1 }}
@@ -243,6 +246,57 @@ const Hero = () => {
                 />
               </div>
             </button>
+          </motion.div>
+          </div>
+
+          {/* Right Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="relative"
+          >
+            <div className="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-primary/15 via-transparent to-primary/10 blur-2xl" />
+            <div className="relative glass-card rounded-3xl p-8 border border-border/50">
+              <div className="flex items-center justify-between mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+                  <ShieldCheck className="h-4 w-4" />
+                  Trusted & Reliable
+                </div>
+                <div className="text-xs text-muted-foreground">Based in Ethiopia</div>
+              </div>
+
+              <h3 className="text-2xl font-semibold mb-4">What I deliver</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <Zap className="h-5 w-5 text-primary mt-0.5" />
+                  Fast, scalable web apps with clean architecture
+                </li>
+                <li className="flex items-start gap-3">
+                  <Code2 className="h-5 w-5 text-primary mt-0.5" />
+                  Pixel-perfect UI with modern UX patterns
+                </li>
+                <li className="flex items-start gap-3">
+                  <ShieldCheck className="h-5 w-5 text-primary mt-0.5" />
+                  Production-ready APIs and reliable integrations
+                </li>
+              </ul>
+
+              <div className="mt-8 grid grid-cols-3 gap-4">
+                <div className="rounded-2xl bg-background/60 border border-border/50 p-4 text-center">
+                  <div className="text-2xl font-bold">10+</div>
+                  <div className="text-xs text-muted-foreground mt-1">Projects</div>
+                </div>
+                <div className="rounded-2xl bg-background/60 border border-border/50 p-4 text-center">
+                  <div className="text-2xl font-bold">3+</div>
+                  <div className="text-xs text-muted-foreground mt-1">Years</div>
+                </div>
+                <div className="rounded-2xl bg-background/60 border border-border/50 p-4 text-center">
+                  <div className="text-2xl font-bold">5★</div>
+                  <div className="text-xs text-muted-foreground mt-1">Reviews</div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

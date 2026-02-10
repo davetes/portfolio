@@ -2,26 +2,21 @@
 
 const testimonials = [
   {
-    name: "Amanuel Tesfaye",
-    role: "Product Manager",
-    company: "Fintech Startup",
+    name: "Upwork Client",
+    role: "Verified Review",
+    company: "Upwork",
     quote:
-      "Delivered a polished, production-ready dashboard ahead of schedule. Communication was clear and proactive throughout.",
+      "⭐️⭐️⭐️⭐️⭐️ 5/5 Tesfahun is an exceptional developer - highly professional and extremely skilled in Node.js, Next.js, Express.js, React, API development, and PostgreSQL. He consistently delivers high-quality work and goes far beyond the requirements to ensure everything is perfect. Communication is smooth, deadlines are met, and his deep technical expertise shows in every step of the project. I highly recommend him and will definitely work with him again.",
   },
   {
-    name: "Sara Bekele",
-    role: "Founder",
-    company: "E-commerce Brand",
+    name: "Mesfin Tsegaye",
+    role: "Founder & CEO at Mevinai",
+    company: "Mevinai PLC",
     quote:
-      "Took our rough idea and turned it into a fast, responsive storefront. The UI feels premium and performs great.",
+      "I highly recommend Tesfahun Kere, who worked as an Intern Frontend Developer under my supervision at Mevinai PLC. Tesfahun is a talented, honest, and responsible individual with a strong work ethic. During his internship, he successfully developed a complex Next.js and Frappe-based project using a Test-Driven Development (TDD) approach. His ability to quickly learn and apply new technologies was impressive, and his proactive nature made him a valuable member of our team. I am confident that Tesfahun will be a great asset to any organization.",
   },
-  {
-    name: "Daniel Getachew",
-    role: "CTO",
-    company: "SaaS Platform",
-    quote:
-      "Solid engineering and clean code. The project scaled smoothly and the handoff was seamless.",
-  },
+  
+ 
 ];
 
 const Testimonials = () => {

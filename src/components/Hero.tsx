@@ -1,9 +1,38 @@
 "use client";
-import React from "react";
-import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
+
+import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles } from "lucide-react";
 import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [typedText, setTypedText] = useState("");
+  const fullText = "Tesfahun Kere";
+
+  useEffect(() => {
+    const onMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", onMouseMove);
+
+    // Typewriter effect
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      if (i < fullText.length) {
+        setTypedText(fullText.substring(0, i + 1));
+        i++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 100);
+
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      clearInterval(typingInterval);
+    };
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -12,64 +41,134 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 px-4"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 w-full h-full bg-background">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px]"></div>
-        <div className="absolute inset-0 bg-background/90 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,transparent_70%,black)]"></div>
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
+
+      {/* Dynamic Grid Overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1) 0px, transparent 50%)`,
+          backgroundSize: '100% 100%',
+        }}
+      />
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-[2px] h-[2px] bg-primary/20 rounded-full"
+            initial={{
+              x: Math.random() * 100 + 'vw',
+              y: Math.random() * 100 + 'vh',
+            }}
+            animate={{
+              x: Math.random() * 100 + 'vw',
+              y: Math.random() * 100 + 'vh',
+            }}
+            transition={{
+              duration: 20 + Math.random() * 20,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
+        ))}
       </div>
 
-      {/* Spotlight Effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-primary/20 blur-[100px] rounded-full opacity-30 pointer-events-none"></div>
-
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-10">
 
-          {/* Status Badge - Glassmorphism */}
-          <div className="animate-fade-in flex justify-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/5 bg-white/5 backdrop-blur-md shadow-lg shadow-primary/5 text-sm text-muted-foreground hover:bg-white/10 transition-colors cursor-default group">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          {/* Status Badge with Animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex justify-center"
+          >
+            <div className="group inline-flex items-center gap-3 px-4 py-2.5 rounded-full border border-primary/20 bg-background/80 backdrop-blur-xl hover:bg-background/90 hover:border-primary/30 transition-all duration-300 cursor-default">
+              <div className="relative">
+                <span className="absolute animate-ping inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+              </div>
+              <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                Available for New Projects
               </span>
-              <span className="group-hover:text-primary transition-colors duration-300">Available for New Projects</span>
+              <Sparkles className="h-3 w-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
+          </motion.div>
+
+          {/* Main Heading with Gradient Text */}
+          <div className="space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative"
+            >
+              <div className="absolute -inset-x-20 -inset-y-6 bg-gradient-to-r from-transparent via-primary/5 to-transparent blur-2xl opacity-50" />
+              <h1 className="relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[0.9]">
+                <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
+                  Building
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+                  Digital Value
+                </span>
+              </h1>
+            </motion.div>
+
+            {/* Animated Subtitle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="max-w-3xl mx-auto"
+            >
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
+                I'm{" "}
+                <span className="relative inline-block">
+                  <span className="text-foreground font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent animate-gradient-x">
+                    {typedText}
+                  </span>
+                  <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-gradient-to-r from-primary to-transparent"></span>
+                </span>
+                . A{" "}
+                <span className="relative group cursor-help">
+                  <span className="text-foreground font-semibold">generic-defying</span>
+                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-background border border-border rounded-lg text-xs font-normal opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-50">
+                    Breaking traditional boundaries
+                  </span>
+                </span>{" "}
+                <span className="text-foreground font-semibold">Bot & Web Developer</span>{" "}
+                engineering accessible, pixel-perfect digital experiences.
+              </p>
+            </motion.div>
           </div>
 
-          {/* Main Typography */}
-          <div className="space-y-6 animate-fade-in-up animation-delay-200">
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-heading font-bold tracking-tight text-foreground leading-[1.1] md:leading-[1]">
-              Crafting <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-br from-foreground via-foreground/90 to-foreground/50 relative">
-                Digital Experiences
-                <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></span>
-              </span>
-            </h1>
-          </div>
-
-          {/* Subtext */}
-          <div className="animate-fade-in-up animation-delay-400 max-w-2xl mx-auto">
-            <p className="text-lg sm:text-xl text-muted-foreground font-light leading-relaxed">
-              I'm <span className="text-foreground font-medium">Tesfahun Kere</span>, a specialized <span className="text-foreground font-medium">Full Stack & Bot Developer</span>.
-              I build scalable applications and intelligent automation systems that drive real value.
-            </p>
-          </div>
-
-          {/* Actions */}
-          <div className="animate-fade-in-up animation-delay-600 flex flex-col sm:flex-row gap-5 justify-center items-center pt-8">
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-10"
+          >
             <Button
               onClick={() => scrollToSection("projects")}
-              className="h-14 px-8 rounded-full bg-foreground text-background font-medium text-lg hover:bg-foreground/90 transition-all duration-300 shadow-[0_0_20px_-5px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_-5px_rgba(255,255,255,0.5)] hover:scale-105"
+              className="group h-14 px-8 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-105"
             >
-              View My Work
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <span className="flex items-center gap-2">
+                View Selected Work
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </span>
             </Button>
 
             <Button
               variant="outline"
-              className="h-14 px-8 rounded-full border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
+              className="group h-14 px-8 rounded-full border-2 border-border/50 hover:border-primary/50 bg-background/60 backdrop-blur-sm hover:bg-background/80 font-medium transition-all duration-300 hover:scale-105"
               asChild
             >
               <a
@@ -79,27 +178,72 @@ const Hero = () => {
                 rel="noopener noreferrer"
               >
                 <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-                Download CV
+                Download Resume
               </a>
             </Button>
-          </div>
+          </motion.div>
 
-          {/* Social Proof/Links */}
-          <div className="animate-fade-in animation-delay-800 pt-16 flex justify-center items-center gap-8">
-            <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-border"></div>
-            <div className="flex gap-6 opacity-60 hover:opacity-100 transition-opacity duration-300">
-              <a href="https://github.com/davetes" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors hover:scale-110 duration-300">
-                <Github className="h-6 w-6" />
-              </a>
-              <a href="https://www.linkedin.com/in/tesfahun-kere-22b54a333/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors hover:scale-110 duration-300">
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <button onClick={() => scrollToSection("contact")} className="hover:text-primary transition-colors hover:scale-110 duration-300">
-                <Mail className="h-6 w-6" />
-              </button>
+          {/* Social Links with Hover Effects */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="pt-16"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 backdrop-blur-sm border border-border/30">
+              <span className="text-sm text-muted-foreground mr-2">Connect</span>
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://github.com/davetes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group p-2 rounded-full hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                >
+                  <Github className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                </a>
+                <div className="h-4 w-[1px] bg-border/50" />
+                <a
+                  href="https://www.linkedin.com/in/tesfahun-kere-22b54a333/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group p-2 rounded-full hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                >
+                  <Linkedin className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                </a>
+                <div className="h-4 w-[1px] bg-border/50" />
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="group p-2 rounded-full hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                >
+                  <Mail className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                </button>
+              </div>
             </div>
-            <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-border"></div>
-          </div>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          >
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="flex flex-col items-center gap-2 group"
+            >
+              <span className="text-xs text-muted-foreground/60 group-hover:text-muted-foreground transition-colors">
+                Explore
+              </span>
+              <div className="w-6 h-10 border-2 border-border/30 rounded-full flex justify-center p-1 group-hover:border-primary/50 transition-colors">
+                <motion.div
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="w-1.5 h-1.5 rounded-full bg-primary/60 group-hover:bg-primary"
+                />
+              </div>
+            </button>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -46,15 +46,15 @@ const Projects = () => {
       date: "Client Project",
       category: "bot"
     },
-    {
-      title: "Rohabingo Game",
+   /*  {
+      title: "Gaming bot",
       description: "Deployed and managed a production game on a Hostinger Ubuntu VPS, handling server setup, backend services, and live monitoring.",
       images: [netflixImage, taskAppImage],
       techStack: ["Django", "Ubuntu VPS", "Hostinger", "DevOps"],
       status: "live" as const,
       date: "Live Production",
       category: "bot"
-    },
+    }, */
     {
       title: "AfroAddis company website",
       description: "Corporate website for KYT Trading Pvt. Ltd., showcasing coffee, sesame, pulses exports/imports, and furniture manufacturing. Built with Next.js App Router, React 19, TypeScript, TailwindCSS v4, Lucide, and Geist fonts.",
@@ -78,7 +78,7 @@ const Projects = () => {
     {
       title: "Netflix Clone",
       description: "A streaming platform clone featuring secure login, movie browsing, trailer previews, and responsive UI.",
-      images: [netflixImage, chatAppImage],
+      images: [netflixImage],
       techStack: ["React", "Express.js", "MongoDB", "TMDB API"],
       liveUrl: "https://netflix-2g7n.onrender.com",
       githubUrl: "https://github.com/davetes/netflix",

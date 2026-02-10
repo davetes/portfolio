@@ -10,6 +10,17 @@ import melahome from "@/assets/melahome.jpg";
 import meladeposit from "@/assets/meladeposit.jpg";
 import melayoutube from "@/assets/melayoutube.jpg";
 import melayoutubadmin from "@/assets/melayoutubeadmin.jpg";
+import dashbotmessage from "@/assets/dashbotmessage.jpg";
+import dashbotinbox from "@/assets/dashbotinbox.jpg";
+import dashbotgroup from "@/assets/dashbotgroup.jpg";
+import dashbotbroadcast from "@/assets/dashbotbroadcast.jpg";
+import dashbotbot from "@/assets/dashbotbot.jpg";
+import dashbotautopost from "@/assets/dashbotautopost.jpg";
+import afroaddissmart from "@/assets/afroaddissmart.jpg";
+import afroaddishome from "@/assets/afroaddishome.jpg";
+import afroaddisabout from "@/assets/afroaddisabout.jpg";
+import chatapplogin from "@/assets/chatapplogin.jpg";
+import { log } from 'console';
 type Category = "all" | "web" | "bot";
 
 const Projects = () => {
@@ -28,10 +39,10 @@ const Projects = () => {
     },
     {
       title: "Telegram Bot & Admin Panel",
-      description: "A fully automated Telegram bot with a web dashboard for managing groups, scheduling bulk messages, and analyzing user engagement.",
-      images: [chatAppImage],
+      description: "Telegram bot management platform with a Next.js admin dashboard user and channel management, flow builder automation, PostgreSQL data layer, and Supabase file uploads.",
+      images: [dashbotmessage, dashbotinbox, dashbotgroup, dashbotbroadcast, dashbotbot, dashbotautopost],
       techStack: ["Node.js", "React", "Telegram API", "PostgreSQL"],
-      status: "completed" as const,
+      status: "live" as const,
       date: "Client Project",
       category: "bot"
     },
@@ -45,19 +56,19 @@ const Projects = () => {
       category: "bot"
     },
     {
-      title: "Internal Dashboards",
-      description: "Comprehensive dashboards with user management, reporting, and authentication, handling complex data aggregation logic.",
-      images: [taskAppImage, chatAppImage],
-      techStack: ["React", "Data Visualization", "Auth", "Backend Logic"],
-      status: "completed" as const,
-      date: "Internal Tools",
+      title: "AfroAddis company website",
+      description: "Corporate website for KYT Trading Pvt. Ltd., showcasing coffee, sesame, pulses exports/imports, and furniture manufacturing. Built with Next.js App Router, React 19, TypeScript, TailwindCSS v4, Lucide, and Geist fonts.",
+      images: [afroaddishome, afroaddisabout, afroaddissmart],
+      techStack: ["Next.js", "React", "TypeScript", "TailwindCSS", "Lucide"],
+      status: "live" as const,
+      date: "Client Project",
       category: "web"
     },
     {
       title: "Chat App",
-      description: "A real-time chat app with one-on-one messaging, media sharing, typing indicators, and live updates.",
-      images: [chatAppImage, netflixImage],
-      techStack: ["React", "Node.js", "Socket.io", "MongoDB"],
+      description: "Full-stack real-time messaging app with instant chat, authentication, and live presence. Built with React, Node.js/Express, Socket.io, and MongoDB + Mongoose.",
+      images: [chatAppImage, chatapplogin],
+      techStack: ["React", "Node.js" ,"express.js", "Socket.io", "MongoDB"],
       liveUrl: "https://chatapp-0h90.onrender.com/",
       githubUrl: "https://github.com/davetes",
       status: "completed" as const,

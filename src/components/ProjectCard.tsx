@@ -1,6 +1,17 @@
+"use client";
+
 import { ExternalLink, Github, Calendar, Eye } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "./ui/carousel";
 import {
   Dialog,
   DialogContent,
@@ -12,7 +23,7 @@ import {
 interface ProjectCardProps {
   title: string;
   description: string;
-  image: string | StaticImageData;
+  images: Array<string | StaticImageData>;
   techStack: string[];
   liveUrl?: string;
   githubUrl?: string;
@@ -23,13 +34,28 @@ interface ProjectCardProps {
 const ProjectCard = ({
   title,
   description,
-  image,
+  images,
   techStack,
   liveUrl,
   githubUrl,
   status,
   date,
 }: ProjectCardProps) => {
+  const [previewApi, setPreviewApi] = useState<CarouselApi | null>(null);
+
+  useEffect(() => {
+    if (!previewApi || images.length < 2) {
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      previewApi.scrollNext();
+    }, 4000);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [previewApi, images.length]);
   const getStatusColor = () => {
     switch (status) {
       case "completed":
@@ -65,7 +91,7 @@ const ProjectCard = ({
       {/* Project Image */}
       <div className="relative overflow-hidden w-full h-48">
         <Image
-          src={image}
+          src={images[0]}
           alt={title}
           className="object-cover transition-transform duration-500 group-hover:scale-110"
           fill
@@ -125,14 +151,32 @@ const ProjectCard = ({
                 <DialogHeader>
                   <DialogTitle>{title} Preview</DialogTitle>
                 </DialogHeader>
-                <div className="relative w-full h-[60vh]">
-                  <Image
-                    src={image}
-                    alt={`${title} preview`}
-                    className="object-contain"
-                    fill
-                  />
-                </div>
+                <Carousel
+                  className="w-full"
+                  opts={{ loop: images.length > 1 }}
+                  setApi={setPreviewApi}
+                >
+                  <CarouselContent>
+                    {images.map((img, index) => (
+                      <CarouselItem key={`${title}-preview-${index}`}>
+                        <div className="relative w-full h-[60vh]">
+                          <Image
+                            src={img}
+                            alt={`${title} preview ${index + 1}`}
+                            className="object-contain"
+                            fill
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  {images.length > 1 && (
+                    <>
+                      <CarouselPrevious className="left-4" />
+                      <CarouselNext className="right-4" />
+                    </>
+                  )}
+                </Carousel>
               </DialogContent>
             </Dialog>
           </div>

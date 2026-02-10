@@ -5,7 +5,7 @@ import ProjectCard from './ProjectCard';
 import taskAppImage from '@/assets/farm.jpg';
 import chatAppImage from "@/assets/chat-app.jpeg";
 import netflixImage from "@/assets/netflix.jpeg";
-
+import mela1 from "@/assets/mela1.jpg";
 type Category = "all" | "web" | "bot";
 
 const Projects = () => {
@@ -15,7 +15,7 @@ const Projects = () => {
     {
       title: "MelaTech Miniapp",
       description: "A full-featured miniapp including an admin panel, backend APIs, and a production-ready frontend deployed on Railway.",
-      image: chatAppImage, // Using as placeholder
+      images: [mela1, netflixImage],
       techStack: ["Next.js", "Node.js", "PostgreSQL", "Railway"],
       liveUrl: "https://t.me/MelaTechbot",
       status: "completed" as const,
@@ -25,7 +25,7 @@ const Projects = () => {
     {
       title: "Telegram Bot & Admin Panel",
       description: "A fully automated Telegram bot with a web dashboard for managing groups, scheduling bulk messages, and analyzing user engagement.",
-      image: chatAppImage, // Using as placeholder
+      images: [chatAppImage],
       techStack: ["Node.js", "React Admin", "Telegram API", "MongoDB"],
       status: "completed" as const,
       date: "Client Project",
@@ -34,7 +34,7 @@ const Projects = () => {
     {
       title: "Rohabingo Game",
       description: "Deployed and managed a production game on a Hostinger Ubuntu VPS, handling server setup, backend services, and live monitoring.",
-      image: netflixImage, // Using as placeholder
+      images: [netflixImage, taskAppImage],
       techStack: ["Django", "Ubuntu VPS", "Hostinger", "DevOps"],
       status: "live" as const,
       date: "Live Production",
@@ -43,7 +43,7 @@ const Projects = () => {
     {
       title: "Internal Dashboards",
       description: "Comprehensive dashboards with user management, reporting, and authentication, handling complex data aggregation logic.",
-      image: taskAppImage, // Using as placeholder
+      images: [taskAppImage, chatAppImage],
       techStack: ["React", "Data Visualization", "Auth", "Backend Logic"],
       status: "completed" as const,
       date: "Internal Tools",
@@ -52,7 +52,7 @@ const Projects = () => {
     {
       title: "Chat App",
       description: "A real-time chat app with one-on-one messaging, media sharing, typing indicators, and live updates.",
-      image: chatAppImage,
+      images: [chatAppImage, netflixImage],
       techStack: ["React", "Node.js", "Socket.io", "MongoDB"],
       liveUrl: "https://chatapp-0h90.onrender.com/",
       githubUrl: "https://github.com/davetes",
@@ -63,7 +63,7 @@ const Projects = () => {
     {
       title: "Netflix Clone",
       description: "A streaming platform clone featuring secure login, movie browsing, trailer previews, and responsive UI.",
-      image: netflixImage,
+      images: [netflixImage, chatAppImage],
       techStack: ["React", "Express.js", "MongoDB", "TMDB API"],
       liveUrl: "https://netflix-2g7n.onrender.com",
       githubUrl: "https://github.com/davetes/netflix",
@@ -74,7 +74,7 @@ const Projects = () => {
     {
       title: "FarmGebeya",
       description: "An e-commerce platform for agricultural products with order tracking and secure checkout.",
-      image: taskAppImage,
+      images: [taskAppImage, netflixImage],
       techStack: ["Next.js", "Node.js", "PostgreSQL"],
       status: "upcoming" as const,
       date: "May 2025",

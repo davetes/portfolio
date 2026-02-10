@@ -106,81 +106,66 @@ const ProjectCard = ({
           </span>
         </div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-            {liveUrl && (
-              <Button
-                size="sm"
-                className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-white/20"
-                asChild
-              >
-                <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  View Live
-                </a>
-              </Button>
-            )}
+      </div>
 
-            {githubUrl && (
-              <Button
-                size="sm"
-                variant="outline"
-                className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-white/20"
-                asChild
-              >
-                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="h-4 w-4 mr-2" />
-                  Code
-                </a>
-              </Button>
-            )}
+      <div className="px-6 pt-4 flex flex-nowrap gap-2">
+        {liveUrl && (
+          <Button size="sm" className="h-8 px-2.5 text-xs bg-primary/10 text-primary hover:bg-primary/15 whitespace-nowrap" asChild>
+            <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-3 w-3 mr-1" />
+              View Live
+            </a>
+          </Button>
+        )}
 
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-white/20"
-                >
-                  <Eye className="h-4 w-4 mr-2" />
-                  Preview
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-6xl">
-                <DialogHeader>
-                  <DialogTitle>{title} Preview</DialogTitle>
-                </DialogHeader>
-                <Carousel
-                  className="w-full"
-                  opts={{ loop: images.length > 1 }}
-                  setApi={setPreviewApi}
-                >
-                  <CarouselContent>
-                    {images.map((img, index) => (
-                      <CarouselItem key={`${title}-preview-${index}`}>
-                        <div className="relative w-full h-[75vh]">
-                          <Image
-                            src={img}
-                            alt={`${title} preview ${index + 1}`}
-                            className="object-contain"
-                            fill
-                          />
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  {images.length > 1 && (
-                    <>
-                      <CarouselPrevious className="left-4" />
-                      <CarouselNext className="right-4" />
-                    </>
-                  )}
-                </Carousel>
-              </DialogContent>
-            </Dialog>
-          </div>
-        </div>
+        {githubUrl && (
+          <Button size="sm" variant="outline" className="h-8 px-2.5 text-xs border-border/60 whitespace-nowrap" asChild>
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+              <Github className="h-3 w-3 mr-1" />
+              Code
+            </a>
+          </Button>
+        )}
+
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button size="sm" variant="outline" className="h-8 px-2.5 text-xs border-border/60 whitespace-nowrap">
+              <Eye className="h-3 w-3 mr-1" />
+              Preview
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="max-w-6xl">
+            <DialogHeader>
+              <DialogTitle>{title} Preview</DialogTitle>
+            </DialogHeader>
+            <Carousel
+              className="w-full"
+              opts={{ loop: images.length > 1 }}
+              setApi={setPreviewApi}
+            >
+              <CarouselContent>
+                {images.map((img, index) => (
+                  <CarouselItem key={`${title}-preview-${index}`}>
+                    <div className="relative w-full h-[75vh]">
+                      <Image
+                        src={img}
+                        alt={`${title} preview ${index + 1}`}
+                        className="object-contain"
+                        fill
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {images.length > 1 && (
+                <>
+                  <CarouselPrevious className="left-4" />
+                  <CarouselNext className="right-4" />
+                </>
+              )}
+            </Carousel>
+          </DialogContent>
+        </Dialog>
       </div>
 
       {/* Project Content */}

@@ -119,7 +119,7 @@ const Hero = () => {
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-                  Digital Value
+                  Digital Products
                 </span>
               </h1>
             </motion.div>
@@ -140,14 +140,8 @@ const Hero = () => {
                   <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-gradient-to-r from-primary to-transparent"></span>
                 </span>
                 . A{" "}
-                <span className="relative group cursor-help">
-                  <span className="text-foreground font-semibold">generic-defying</span>
-                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-background border border-border rounded-lg text-xs font-normal opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-50">
-                    Breaking traditional boundaries
-                  </span>
-                </span>{" "}
                 <span className="text-foreground font-semibold">Bot & Web Developer</span>{" "}
-                engineering accessible, pixel-perfect digital experiences.
+                specializing in Telegram automation and modern web apps, delivering secure, scalable, and pixel‑perfect digital experiences.
               </p>
             </motion.div>
           </div>
@@ -186,29 +180,7 @@ const Hero = () => {
             </Button>
           </motion.div>
 
-          {/* Scroll Indicator */}
-            <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          >
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="flex flex-col items-center gap-2 group"
-            >
-              <span className="text-xs text-muted-foreground/60 group-hover:text-muted-foreground transition-colors">
-                Explore
-              </span>
-              <div className="w-6 h-10 border-2 border-border/30 rounded-full flex justify-center p-1 group-hover:border-primary/50 transition-colors">
-                <motion.div
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="w-1.5 h-1.5 rounded-full bg-primary/60 group-hover:bg-primary"
-                />
-              </div>
-            </button>
-          </motion.div>
+          
           </div>
 
           {/* Right Column */}
@@ -225,7 +197,6 @@ const Hero = () => {
                   <ShieldCheck className="h-4 w-4" />
                   Trusted & Reliable
                 </div>
-                <div className="text-xs text-muted-foreground">Based in Ethiopia</div>
               </div>
 
               <h3 className="text-2xl font-semibold mb-4">What I deliver</h3>

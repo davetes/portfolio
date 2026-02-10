@@ -82,9 +82,6 @@ const Skills = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="mb-16 flex flex-col gap-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold w-fit">
-              Expertise
-            </div>
             <h2 className="text-4xl md:text-5xl font-heading font-bold">
               Technical Expertise
             </h2>

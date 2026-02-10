@@ -1,6 +1,13 @@
-import { ExternalLink, Github, Calendar } from "lucide-react";
+import { ExternalLink, Github, Calendar, Eye } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { Button } from "./ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 
 interface ProjectCardProps {
   title: string;
@@ -102,6 +109,32 @@ const ProjectCard = ({
                 </a>
               </Button>
             )}
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-white/20"
+                >
+                  <Eye className="h-4 w-4 mr-2" />
+                  Preview
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl">
+                <DialogHeader>
+                  <DialogTitle>{title} Preview</DialogTitle>
+                </DialogHeader>
+                <div className="relative w-full h-[60vh]">
+                  <Image
+                    src={image}
+                    alt={`${title} preview`}
+                    className="object-contain"
+                    fill
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>

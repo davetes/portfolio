@@ -6,6 +6,10 @@ import taskAppImage from '@/assets/farm.jpg';
 import chatAppImage from "@/assets/chat-app.jpeg";
 import netflixImage from "@/assets/netflix.jpeg";
 import mela1 from "@/assets/mela1.jpg";
+import melahome from "@/assets/melahome.jpg";
+import meladeposit from "@/assets/meladeposit.jpg";
+import melayoutube from "@/assets/melayoutube.jpg";
+import melayoutubadmin from "@/assets/melayoutubeadmin.jpg";
 type Category = "all" | "web" | "bot";
 
 const Projects = () => {
@@ -13,13 +17,13 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "MelaTech Miniapp",
+      title: "MelaTech Miniapp & Admin Panel",
       description: "A full-featured miniapp including an admin panel, backend APIs, and a production-ready frontend deployed on Railway.",
-      images: [mela1, netflixImage],
+      images: [melahome, meladeposit, melayoutube, mela1,melayoutubadmin],
       techStack: ["Next.js", "Node.js", "PostgreSQL", "Railway"],
       liveUrl: "https://t.me/MelaTechbot",
-      status: "completed" as const,
-      date: "Live Production",
+      status: "live" as const,
+      date: "Client Project",
       category: "bot"
     },
     {

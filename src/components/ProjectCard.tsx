@@ -147,7 +147,7 @@ const ProjectCard = ({
                   Preview
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl">
+              <DialogContent className="max-w-6xl">
                 <DialogHeader>
                   <DialogTitle>{title} Preview</DialogTitle>
                 </DialogHeader>
@@ -159,7 +159,7 @@ const ProjectCard = ({
                   <CarouselContent>
                     {images.map((img, index) => (
                       <CarouselItem key={`${title}-preview-${index}`}>
-                        <div className="relative w-full h-[60vh]">
+                        <div className="relative w-full h-[75vh]">
                           <Image
                             src={img}
                             alt={`${title} preview ${index + 1}`}

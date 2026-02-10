@@ -20,7 +20,7 @@ const Projects = () => {
       title: "MelaTech Miniapp & Admin Panel",
       description: "A full-featured miniapp including an admin panel, backend APIs, and a production-ready frontend deployed on Railway.",
       images: [melahome, meladeposit, melayoutube, mela1,melayoutubadmin],
-      techStack: ["Next.js", "Node.js", "PostgreSQL", "Railway"],
+      techStack: ["Next.js", "Node.js", "PostgreSQL", "Express", "Telegram API","Railway"],
       liveUrl: "https://t.me/MelaTechbot",
       status: "live" as const,
       date: "Client Project",
@@ -30,7 +30,7 @@ const Projects = () => {
       title: "Telegram Bot & Admin Panel",
       description: "A fully automated Telegram bot with a web dashboard for managing groups, scheduling bulk messages, and analyzing user engagement.",
       images: [chatAppImage],
-      techStack: ["Node.js", "React Admin", "Telegram API", "MongoDB"],
+      techStack: ["Node.js", "React", "Telegram API", "PostgreSQL"],
       status: "completed" as const,
       date: "Client Project",
       category: "bot"

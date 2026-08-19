@@ -4,87 +4,49 @@
 
 @layer base {
   :root {
-    /* Base Colors - Clean White Theme */
-    --background: 210 20% 98%;
-    --foreground: 224 71% 4%;
-
-    /* Card - Subtle depth */
+    --background: 240 10% 98%;
+    --foreground: 240 10% 4%;
     --card: 0 0% 100%;
-    --card-foreground: 224 71% 4%;
-
-    /* Popover */
+    --card-foreground: 240 10% 4%;
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 4%;
-
-    /* Primary - Distinctive Deep Blue/Charcoal */
-    --primary: 220 50% 20%;
-    --primary-foreground: 210 20% 98%;
-
-    /* Secondary - Soft Gray */
-    --secondary: 220 14% 94%;
-    --secondary-foreground: 220 50% 20%;
-
-    /* Muted */
-    --muted: 220 14% 94%;
-    --muted-foreground: 220 8% 46%;
-
-    /* Accent */
-    --accent: 220 14% 94%;
-    --accent-foreground: 220 50% 20%;
-
-    /* Destructive */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 20% 98%;
-
-    /* Key Borders */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 224 71% 4%;
-
+    --popover-foreground: 240 10% 4%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
     --radius: 0.75rem;
   }
 
   .dark {
-    /* Base Colors - Premium Midnight Theme (Not just black) */
-    --background: 224 30% 8%;
-    /* #0e111a - Rich dark */
-    --foreground: 210 20% 98%;
-
-    /* Card - Slightly lighter midnight */
-    --card: 224 30% 10%;
-    /* #12151f */
-    --card-foreground: 210 20% 98%;
-
-    /* Popover */
-    --popover: 224 30% 10%;
-    --popover-foreground: 210 20% 98%;
-
-    /* Primary - Vibrant but professional Blue-Purple */
-    --primary: 263 70% 50%;
-    /* Distinct purple-blue accent */
-    --primary-foreground: 210 20% 98%;
-
-    /* Secondary - Dark Slate */
-    --secondary: 215 20% 15%;
-    --secondary-foreground: 210 20% 98%;
-
-    /* Muted */
-    --muted: 215 20% 15%;
-    --muted-foreground: 215 15% 65%;
-
-    /* Accent */
-    --accent: 215 20% 17%;
-    --accent-foreground: 210 20% 98%;
-
-    /* Destructive */
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 210 20% 98%;
-
-    /* Borders */
-    --border: 215 20% 18%;
-    /* Subtle contrast borders */
-    --input: 215 20% 18%;
-    --ring: 263 70% 50%;
+    /* Sleek obsidian midnight palette */
+    --background: 240 10% 3.9%;   /* #09090b */
+    --foreground: 0 0% 98%;        /* #fafafa */
+    --card: 240 10% 6%;           /* #0e0e11 */
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 238 84% 67%;        /* #6366f1 Indigo accent */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 6% 13%;       /* #18181b */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 15%;          /* #222226 */
+    --muted-foreground: 240 5% 65%;/* #a1a1aa */
+    --accent: 240 6% 14%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 6% 15%;         /* #27272a */
+    --input: 240 6% 15%;
+    --ring: 238 84% 67%;
   }
 }
 
@@ -95,37 +57,36 @@
 
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-primary/25 selection:text-foreground font-sans;
   }
 }
 
 @layer utilities {
-
-  /* Premium Glass Effect - Refined */
+  /* Modern clean card styling - sharp, subtle contrast, no tacky neon glows */
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    @apply bg-zinc-950/80 backdrop-blur-md border border-zinc-800/80;
   }
 
   .glass-card {
-    @apply bg-card/60 backdrop-blur-sm border border-border/50 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:-translate-y-1;
+    @apply bg-zinc-900/40 backdrop-blur-sm border border-zinc-800/80 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900/70 hover:-translate-y-0.5 shadow-sm;
   }
 
-  /* Text Gradients - More subtle and professional */
+  /* Sleek Text Gradient */
   .text-gradient-primary {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-foreground/60;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 via-zinc-200 to-zinc-400;
   }
 
   .text-gradient-accent {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-sky-300 to-emerald-400;
   }
 
-  /* Grain Texture for Film-like quality */
+  /* Subtle Noise Overlay */
   .bg-noise {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
     pointer-events: none;
     position: fixed;
     top: 0;
@@ -133,8 +94,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 50;
-    opacity: 0.04;
-    mix-blend-mode: overlay;
+    opacity: 0.03;
   }
 }
 

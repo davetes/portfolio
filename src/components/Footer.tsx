@@ -58,28 +58,27 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-background border-t border-border/50">
+    <footer className="bg-zinc-100 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400">
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr_1fr]">
+          <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_1fr]">
             {/* Brand & Description */}
-            <div className="md:col-span-1">
-              <h3 className="text-2xl font-bold font-heading mb-3 text-foreground">
-                Tesfahun Kere
+            <div className="md:col-span-1 space-y-4">
+              <h3 className="text-xl font-bold font-mono text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                <span className="text-indigo-600 dark:text-indigo-400">&lt;&gt;</span> tesfahun.dev
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                Full Stack Developer focused on building modern, scalable products
-                with clean architecture and pixel‑perfect UI.
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-sm">
+                Full-Stack & Systems Engineer building robust backend services, automated Telegram platforms, and modern web applications.
               </p>
 
               {/* Social Links */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex items-center gap-2 pt-2">
                 {socialLinks.map((social, index) => (
                   <Button
                     key={index}
                     variant="ghost"
                     size="icon"
-                    className="h-10 w-10 rounded-full hover:bg-primary/10 hover:text-primary transition-colors"
+                    className="h-9 w-9 rounded-xl border border-zinc-300 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/60 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                     asChild
                   >
                     <a
@@ -88,7 +87,7 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       aria-label={social.label}
                     >
-                      <social.icon className="h-5 w-5" />
+                      <social.icon className="h-4 w-4" />
                     </a>
                   </Button>
                 ))}
@@ -97,15 +96,15 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div className="md:col-span-1">
-              <h4 className="text-lg font-semibold font-heading text-foreground mb-6">
+              <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-300 mb-4">
                 Navigation
               </h4>
-              <nav className="space-y-3">
+              <nav className="space-y-2.5">
                 {quickLinks.map((link) => (
                   <button
                     key={link.id}
                     onClick={() => scrollToSection(link.id)}
-                    className="block text-muted-foreground hover:text-primary transition-colors text-left text-sm"
+                    className="block text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors text-left text-xs"
                   >
                     {link.label}
                   </button>
@@ -115,32 +114,32 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="md:col-span-1">
-              <h4 className="text-lg font-semibold font-heading text-foreground mb-6">
-                Connect
+              <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-300 mb-4">
+                Contact & Specs
               </h4>
-              <div className="space-y-4 text-sm text-muted-foreground">
+              <div className="space-y-2 text-xs font-mono text-zinc-600 dark:text-zinc-400">
                 <p>tesfa4706@gmail.com</p>
                 <p>+251-968-651-265</p>
                 <p>Addis Ababa, Ethiopia</p>
               </div>
 
-              <div className="mt-8">
+              <div className="mt-6">
                 <Button
                   onClick={() => scrollToSection("contact")}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors h-11 px-6 rounded-lg"
+                  className="bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors h-10 px-5 rounded-xl text-xs font-medium"
                 >
-                  Start a Project
+                  Get in Touch
                 </Button>
               </div>
             </div>
           </div>
 
           {/* Divider */}
-          <div className="border-t border-border/50 mt-16 pt-8">
+          <div className="border-t border-zinc-200 dark:border-zinc-800/80 mt-12 pt-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Copyright */}
-              <p className="text-muted-foreground text-sm">
-                © {currentYear} Tesfahun Kere. All rights reserved.
+              <p className="text-zinc-500 text-xs font-mono">
+                © {currentYear} Tesfahun Kere. Engineered with Next.js & React 19.
               </p>
 
               {/* Back to Top */}
@@ -148,9 +147,9 @@ const Footer = () => {
                 variant="ghost"
                 size="sm"
                 onClick={scrollToTop}
-                className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors text-xs font-mono"
               >
-                <ArrowUp className="h-4 w-4 mr-2" />
+                <ArrowUp className="h-3.5 w-3.5 mr-1.5" />
                 Back to Top
               </Button>
             </div>

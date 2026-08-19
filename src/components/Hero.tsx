@@ -1,38 +1,10 @@
 "use client";
 
-import { ArrowRight, Download, Sparkles, ShieldCheck, Zap, Code2 } from "lucide-react";
+import { ArrowRight, Download, Terminal as TerminalIcon, CheckCircle2, Server, Cpu, Database, Code2 } from "lucide-react";
 import { Button } from "./ui/button";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [typedText, setTypedText] = useState("");
-  const fullText = "Tesfahun Kere";
-
-  useEffect(() => {
-    const onMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", onMouseMove);
-
-    // Typewriter effect
-    let i = 0;
-    const typingInterval = setInterval(() => {
-      if (i < fullText.length) {
-        setTypedText(fullText.substring(0, i + 1));
-        i++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 100);
-
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove);
-      clearInterval(typingInterval);
-    };
-  }, []);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -41,196 +13,179 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-20 px-4"
+      className="min-h-[90vh] flex items-center justify-center relative overflow-hidden pt-28 pb-16 px-4"
     >
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
+      {/* Subtle Background Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
-      {/* Dynamic Grid Overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.1) 0px, transparent 50%)`,
-          backgroundSize: '100% 100%',
-        }}
-      />
+      {/* Hero Content */}
+      <div className="container mx-auto relative z-10 max-w-6xl">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-[2px] h-[2px] bg-primary/20 rounded-full"
-            initial={{
-              x: Math.random() * 100 + 'vw',
-              y: Math.random() * 100 + 'vh',
-            }}
-            animate={{
-              x: Math.random() * 100 + 'vw',
-              y: Math.random() * 100 + 'vh',
-            }}
-            transition={{
-              duration: 20 + Math.random() * 20,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          />
-        ))}
-      </div>
+          {/* Left Column: Headline & Info */}
+          <div className="space-y-8 text-left">
 
-      {/* Content */}
-      <div className="container mx-auto relative z-10">
-        <div className="max-w-6xl mx-auto grid gap-12 items-center lg:grid-cols-[1.1fr_0.9fr]">
-
-          {/* Left Column */}
-          <div className="space-y-10 text-center lg:text-left">
-
-          {/* Status Badge with Animation */}
+            {/* Status Pill */}
             <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex justify-center lg:justify-start"
-          >
-            <div className="group inline-flex items-center gap-3 px-4 py-2.5 rounded-full border border-primary/20 bg-background/80 backdrop-blur-xl hover:bg-background/90 hover:border-primary/30 transition-all duration-300 cursor-default">
-              <div className="relative">
-                <span className="absolute animate-ping inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-              </div>
-              <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
-                Available for New Projects
-              </span>
-              <Sparkles className="h-3 w-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-          </motion.div>
-
-          {/* Main Heading with Gradient Text */}
-            <div className="space-y-6">
-              <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative"
+              transition={{ duration: 0.4 }}
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100/90 dark:bg-zinc-900/80 text-xs font-medium text-zinc-700 dark:text-zinc-300 backdrop-blur-md shadow-sm"
             >
-              <div className="absolute -inset-x-20 -inset-y-6 bg-gradient-to-r from-transparent via-primary/5 to-transparent blur-2xl opacity-50" />
-              <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05]">
-                <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent">
-                  Building
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-                  Digital Products
-                </span>
-              </h1>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>Available for engineering roles & projects</span>
             </motion.div>
 
-            {/* Animated Subtitle */}
-              <motion.div
+            {/* Main Headline */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="max-w-3xl mx-auto lg:mx-0"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="space-y-4"
             >
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-                I'm{" "}
-                <span className="relative inline-block">
-                  <span className="text-foreground font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent animate-gradient-x">
-                    {typedText}
-                  </span>
-                  <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-gradient-to-r from-primary to-transparent"></span>
-                </span>
-                . A{" "}
-                <span className="text-foreground font-semibold">Bot & Web Developer</span>{" "}
-                specializing in Telegram automation and modern web apps, delivering secure, scalable, and pixel‑perfect digital experiences.
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] text-zinc-900 dark:text-zinc-100 font-heading">
+                Building <span className="text-gradient-accent">Scalable Web Systems</span> & Telegram Automation
+              </h1>
+              <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed max-w-2xl">
+                I'm <strong className="text-zinc-900 dark:text-zinc-100 font-semibold">Tesfahun Kere</strong>, a Full-Stack & Systems Developer specializing in Node.js backend architecture, PostgreSQL, Telegram bot APIs, and high-performance React/Next.js web apps.
               </p>
             </motion.div>
-          </div>
 
-          {/* Action Buttons */}
+            {/* Action CTAs */}
             <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-10"
-          >
-            <Button
-              onClick={() => scrollToSection("projects")}
-              className="group h-14 px-8 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-105"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-wrap gap-4 pt-2"
             >
-              <span className="flex items-center gap-2">
-                View Selected Work
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Button>
-
-            <Button
-              variant="outline"
-              className="group h-14 px-8 rounded-full border-2 border-border/50 hover:border-primary/50 bg-background/60 backdrop-blur-sm hover:bg-background/80 font-medium transition-all duration-300 hover:scale-105"
-              asChild
-            >
-              <a
-                href="/tesfajo.pdf"
-                download="Tesfahun_Kere_CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Button
+                onClick={() => scrollToSection("projects")}
+                className="h-12 px-7 rounded-xl bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 font-medium transition-all duration-200 shadow-md flex items-center gap-2"
               >
-                <Download className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-                Download Resume
-              </a>
-            </Button>
-          </motion.div>
+                Explore Selected Works
+                <ArrowRight className="h-4 w-4" />
+              </Button>
 
-          
+              <Button
+                variant="outline"
+                className="h-12 px-7 rounded-xl border-zinc-300 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 font-medium transition-all duration-200"
+                asChild
+              >
+                <a
+                  href="/tesfajo.pdf"
+                  download="Tesfahun_Kere_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                  Download CV
+                </a>
+              </Button>
+            </motion.div>
+
+            {/* Tech Badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="pt-6 border-t border-zinc-200 dark:border-zinc-800/60 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-zinc-600 dark:text-zinc-400 font-mono"
+            >
+              <span className="flex items-center gap-1.5"><Server className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" /> Node.js & Express</span>
+              <span className="flex items-center gap-1.5"><Code2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" /> Python & Django</span>
+              <span className="flex items-center gap-1.5"><Database className="h-3.5 w-3.5 text-sky-600 dark:text-sky-400" /> PostgreSQL & MongoDB</span>
+              <span className="flex items-center gap-1.5"><Code2 className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" /> Next.js & React</span>
+              <span className="flex items-center gap-1.5"><Cpu className="h-3.5 w-3.5 text-purple-600 dark:text-purple-400" /> Telegram Bot API</span>
+            </motion.div>
+
           </div>
 
-          {/* Right Column */}
+          {/* Right Column: Sleek Terminal & System Architecture Card */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="relative"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-full"
           >
-            <div className="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-primary/15 via-transparent to-primary/10 blur-2xl" />
-            <div className="relative glass-card rounded-3xl p-8 border border-border/50">
-              <div className="flex items-center justify-between mb-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold">
-                  <ShieldCheck className="h-4 w-4" />
-                  Trusted & Reliable
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl overflow-hidden font-mono text-xs text-zinc-300">
+              {/* Window Bar */}
+              <div className="px-4 py-3 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                 </div>
+                <div className="flex items-center gap-1.5 text-zinc-400 text-[11px]">
+                  <TerminalIcon className="h-3.5 w-3.5 text-zinc-500" />
+                  <span>tesfahun@vps:~ (bash)</span>
+                </div>
+                <div className="w-12"></div>
               </div>
 
-              <h3 className="text-2xl font-semibold mb-4">What I deliver</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <Zap className="h-5 w-5 text-primary mt-0.5" />
-                  Fast, scalable web apps with clean architecture
-                </li>
-                <li className="flex items-start gap-3">
-                  <Code2 className="h-5 w-5 text-primary mt-0.5" />
-                  Pixel-perfect UI with modern UX patterns
-                </li>
-                <li className="flex items-start gap-3">
-                  <ShieldCheck className="h-5 w-5 text-primary mt-0.5" />
-                  Production-ready APIs and reliable integrations
-                </li>
-              </ul>
+              {/* Terminal Content */}
+              <div className="p-6 space-y-4 text-zinc-300 leading-relaxed">
+                <div>
+                  <span className="text-emerald-400">tesfahun@vps</span>:<span className="text-sky-400">~</span>$ neofetch --system
+                </div>
 
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                <div className="rounded-2xl bg-background/60 border border-border/50 p-4 text-center">
-                  <div className="text-2xl font-bold">10+</div>
-                  <div className="text-xs text-muted-foreground mt-1">Projects</div>
+                <div className="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800 space-y-2.5">
+                  <div className="flex justify-between items-center text-zinc-400 pb-2 border-b border-zinc-800">
+                    <span className="font-semibold text-zinc-100">ENGINEER PROFILE</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">ONLINE</span>
+                  </div>
+
+                  <div className="grid grid-cols-[100px_1fr] gap-1 text-[11px]">
+                    <span className="text-zinc-500">Developer:</span>
+                    <span className="text-zinc-100 font-sans font-semibold">Tesfahun Kere</span>
+                    
+                    <span className="text-zinc-500">Role:</span>
+                    <span className="text-zinc-300">Backend & Bot Systems Engineer</span>
+
+                    <span className="text-zinc-500">Core Stack:</span>
+                    <span className="text-indigo-300">Node.js, Express, Python, TypeScript, PostgreSQL</span>
+
+                    <span className="text-zinc-500">Frontend:</span>
+                    <span className="text-sky-300">Next.js 15, React 19, TailwindCSS</span>
+
+                    <span className="text-zinc-500">Infrastructure:</span>
+                    <span className="text-amber-300">Ubuntu VPS, Nginx, Docker, Railway</span>
+                  </div>
                 </div>
-                <div className="rounded-2xl bg-background/60 border border-border/50 p-4 text-center">
-                  <div className="text-2xl font-bold">3+</div>
-                  <div className="text-xs text-muted-foreground mt-1">Years</div>
+
+                <div className="pt-2 space-y-2">
+                  <div className="text-zinc-400 flex items-center justify-between text-[11px]">
+                    <span>ACTIVE SYSTEMS:</span>
+                    <span className="text-emerald-400 font-semibold">100% Operational</span>
+                  </div>
+                  
+                  <div className="space-y-1.5 font-sans">
+                    <div className="flex items-center justify-between p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800 text-xs">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                        <span className="font-medium text-zinc-200">SINET Journal (AAU)</span>
+                      </div>
+                      <span className="text-[10px] text-zinc-400 bg-zinc-800 px-2 py-0.5 rounded">Live Production</span>
+                    </div>
+
+                    <div className="flex items-center justify-between p-2.5 rounded-lg bg-zinc-900/60 border border-zinc-800 text-xs">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                        <span className="font-medium text-zinc-200">MelaTech MiniApp & Admin</span>
+                      </div>
+                      <span className="text-[10px] text-zinc-400 bg-zinc-800 px-2 py-0.5 rounded">Telegram Bot</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="rounded-2xl bg-background/60 border border-border/50 p-4 text-center">
-                  <div className="text-2xl font-bold">5★</div>
-                  <div className="text-xs text-muted-foreground mt-1">Reviews</div>
+
+                <div className="pt-1 text-zinc-500 text-[11px] flex items-center gap-1.5">
+                  <span className="animate-pulse text-emerald-400">❯</span> Ready for contract development & full-time engineering.
                 </div>
               </div>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import {
 import {
   SiTelegram,
   SiNodedotjs,
+  SiExpress,
   SiPython,
   SiDjango,
   SiSocketdotio,
@@ -39,8 +40,8 @@ const Skills = () => {
       description: "Building intelligent, automated systems",
       skills: [
         { name: "Telegram API", icon: SiTelegram },
-        { name: "Node.js", icon: SiNodedotjs },
         { name: "Python", icon: SiPython },
+        { name: "Node.js", icon: SiNodedotjs },
         { name: "Web Scraping", icon: FaRobot },
         { name: "Automation Scripts", icon: FaTerminalIcon },
         { name: "Socket.io", icon: SiSocketdotio }
@@ -51,12 +52,12 @@ const Skills = () => {
       icon: Server,
       description: "Scalable infrastructure & server management",
       skills: [
+        { name: "Express.js", icon: SiExpress },
+        { name: "Python & Django", icon: SiDjango },
         { name: "PostgreSQL", icon: SiPostgresql },
         { name: "MongoDB", icon: SiMongodb },
         { name: "Ubuntu VPS", icon: SiUbuntu },
-        { name: "Nginx", icon: SiNginx },
-        { name: "Docker", icon: SiDocker },
-        { name: "RESTful APIs", icon: FaGlobeIcon }
+        { name: "Docker & Nginx", icon: SiDocker }
       ]
     },
     {
@@ -75,42 +76,36 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="pt-8 pb-24 relative border-t border-border/40 overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:30px_30px]"></div>
-
+    <section id="skills" className="py-24 relative border-t border-zinc-200 dark:border-zinc-800/60 overflow-hidden bg-zinc-50/50 dark:bg-zinc-950/40">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="mb-16 flex flex-col gap-6">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold">
-              Technical Expertise
+          <div className="mb-14 flex flex-col gap-4">
+            <div className="text-xs font-mono tracking-widest text-indigo-600 dark:text-indigo-400 uppercase">Capabilities</div>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-zinc-900 dark:text-zinc-100">
+              Technical Stack & Expertise
             </h2>
-            <div className="h-1 w-20 bg-primary"></div>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl font-light leading-relaxed">
-              A deep dive into my core competencies, focusing on bot automation, full-stack development, and robust backend infrastructure.
+            <p className="text-base text-zinc-600 dark:text-zinc-400 max-w-2xl font-normal leading-relaxed">
+              Core competencies spanning bot automation, full-stack web engineering, database architecture, and production DevOps.
             </p>
           </div>
 
           {/* Skills Grid */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {skillCategories.map((category, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl border border-border/40 bg-background/60 p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_12px_40px_rgba(15,23,42,0.15)]"
+                className="group relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-7 transition-all duration-300 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50/80 dark:hover:bg-zinc-900/70 shadow-sm hover:shadow-md"
               >
-                <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <category.icon className="w-32 h-32 text-primary" />
-                </div>
-
                 <div className="relative z-10">
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <category.icon className="h-7 w-7 text-primary" />
+                  <div className="w-12 h-12 bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/60 rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-200">
+                    <category.icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                   </div>
 
-                  <h3 className="text-2xl font-bold font-heading mb-2">
+                  <h3 className="text-xl font-bold font-heading mb-1.5 text-zinc-900 dark:text-zinc-100">
                     {category.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-8">
+                  <p className="text-zinc-500 dark:text-zinc-400 text-xs mb-6">
                     {category.description}
                   </p>
 
@@ -118,9 +113,9 @@ const Skills = () => {
                     {category.skills.map((skill, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1.5 bg-background/60 border border-border/50 rounded-lg text-sm text-foreground/80 font-medium flex items-center gap-2 hover:bg-primary/10 hover:text-primary transition-colors cursor-default"
+                        className="px-3 py-1.5 bg-zinc-100 dark:bg-zinc-950/70 border border-zinc-200 dark:border-zinc-800 rounded-lg text-xs text-zinc-700 dark:text-zinc-300 font-medium flex items-center gap-2 hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-default"
                       >
-                        <skill.icon className="w-4 h-4" />
+                        <skill.icon className="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400" />
                         {skill.name}
                       </span>
                     ))}

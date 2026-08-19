@@ -5,7 +5,7 @@ import { Moon, Sun, Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

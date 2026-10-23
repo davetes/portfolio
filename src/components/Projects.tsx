@@ -30,7 +30,7 @@ const Projects = () => {
   const projects: ProjectCardProps[] = [
     {
       title: "Addis Ababa University Journal Management System (SINET)",
-      description: "A live journal management system for Addis Ababa University used by researchers and academics to streamline the entire publication workflow.",
+      description: "Academic institutions require rigorous manuscript submission and peer review workflows with strict role-based permissions to maintain publication integrity. Architected and built the complete backend for a production journal system, designing the PostgreSQL schema and RESTful APIs to handle manuscript submission, multi-stage review workflows, and authentication across four user roles. Chose PostgreSQL for its advanced transaction support and complex query capabilities, which are essential for maintaining referential integrity across the multi-stage peer review process.",
       images: [sinetImage],
       techStack: ["Node.js", "Express", "TypeScript", "PostgreSQL", "REST API"],
       liveUrl: "https://sinet.aau.edu.et/",
@@ -64,7 +64,7 @@ const Projects = () => {
     },
     {
       title: "MelaTech Miniapp & Admin Panel",
-      description: "A full-featured miniapp including an admin panel, backend APIs, and a production-ready frontend deployed on Railway.",
+      description: "Telegram mini apps need seamless user onboarding with admin oversight, but syncing real-time state between a lightweight mini app and a robust admin dashboard is architecturally complex. Developed a full-stack Telegram mini app with a Next.js admin control panel featuring user registration with approval workflows, automated notifications, and interactive menu systems. Deployed on Railway for zero-config CI/CD and automatic scaling—the platform handles unpredictable traffic spikes when admins broadcast notifications to users without manual intervention.",
       images: [melahome, meladeposit, melayoutube, mela1,melayoutubadmin],
       techStack: ["Next.js", "Node.js", "PostgreSQL", "Express", "Telegram API","Railway"],
       liveUrl: "https://t.me/MelaTechbot",
@@ -92,7 +92,7 @@ const Projects = () => {
     }, */
     {
       title: "AfroAddis company website",
-      description: "Corporate website for KYT Trading Pvt. Ltd., showcasing coffee, sesame, pulses exports/imports, and furniture manufacturing. Built with Next.js App Router, React 19, TypeScript, TailwindCSS v4, Lucide, and Geist fonts.",
+      description: "KYT Trading needed a modern corporate presence that loads fast, ranks well in search engines, and allows non-technical staff to update content without developer dependencies. Built a performant corporate website using Next.js App Router with server-side rendering for optimal SEO and TailwindCSS for responsive, maintainable styling. Leveraged Next.js SSR to maximize Core Web Vitals and search visibility, while TailwindCSS enables rapid design iteration without the maintenance overhead of traditional CSS architectures.",
       images: [afroaddishome, afroaddisabout, afroaddissmart],
       techStack: ["Next.js", "React", "TypeScript", "TailwindCSS", "Lucide"],
       status: "live" as const,
@@ -110,17 +110,7 @@ const Projects = () => {
       date: "February 2024",
       category: "web"
     },
-    {
-      title: "Netflix Clone",
-      description: "A streaming platform clone featuring secure login, movie browsing, trailer previews, and responsive UI.",
-      images: [netflixImage],
-      techStack: ["React", "Express.js", "MongoDB", "TMDB API"],
-      liveUrl: "https://netflix-2g7n.onrender.com",
-      githubUrl: "https://github.com/davetes/netflix",
-      date: "December 2024",
-      status: "completed" as const,
-      category: "web"
-    },
+
     {
       title: "FarmGebeya",
       description: "An e-commerce platform for agricultural products with order tracking and secure checkout.",
